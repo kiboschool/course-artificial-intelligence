@@ -20,4 +20,4 @@ jobs:
     steps:
       - name: publish
         run: |
-          curl --request PUT --url $API_URL/api/latest/courses -H "Authorization: SharedKey $API_KEY" -H "Content-Type: application/json" --data '{"github_path": "'$GITHUB_ACTION_REPOSITORY'"}'
+          curl --request POST --url $API_URL/api/latest/courses/update -H "Authorization: SharedKey $API_KEY" -H "Content-Type: application/json" --data "{\"github_path\": \"$GITHUB_REPOSITORY\"}"
