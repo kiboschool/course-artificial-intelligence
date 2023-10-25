@@ -8,6 +8,8 @@
 
 ### Week 1
 
+<!-->
+
 - [Intelligence with Search I](lessons/intelligence-with-search-i.md)
 
   - [AI: What and Why](lessons/intelligence-with-search/ai-what-why.md)
