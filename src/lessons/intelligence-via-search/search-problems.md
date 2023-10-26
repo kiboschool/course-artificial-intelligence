@@ -47,9 +47,9 @@ Take 5 minutes to think about that and try to come up with some examples that fi
 
 ### Share it!
 
-Look at the examples shared by your peers and instructors below, and share yours with them. Make sure to write your name or nickname beside your example.
+Look at the examples shared by your peers and instructors below, and share yours with them.
 
-[[[PADLET]]]
+Share it with us on Discord [here](https://discord.com/channels/1167059986019520563/1167060638300913786):
 
 ## Modeling Search Problems
 

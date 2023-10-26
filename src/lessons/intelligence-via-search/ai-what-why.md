@@ -4,6 +4,10 @@ In this section, we will explore rationality, intelligence, and AI. We will also
 
 ### Intelligence
 
+<p align="center">
+  <img src="../../images/intell-1.png" alt="Robot" />
+</p>
+
 If a robot navigates city streets without colliding with anything, would you consider this robot intelligent? Many would agree, including myself. However, if a human performs the same task, you might hesitate to describe them as intelligent. On the other hand, when a person tackles a challenging math problem or quickly learns a new language, we are more inclined to label them as intelligent. As humans, we hold different perceptions of intelligence, employing distinct criteria for evaluating machines versus humans. Even scientists have varying definitions of intelligence.
 
 To take a step forward, we can define intelligence as _the ability to make the right decisions._ But what does it mean to make the right decision? To answer this question, we need to discuss the concept of rationality.
@@ -12,6 +16,9 @@ To take a step forward, we can define intelligence as _the ability to make the r
 
 From a scientific standpoint, rationality is the quality of being grounded in reason and logic. Therefore, a person or a machine is considered rational if their decisions are based on reasoning and logic, guided by specific goals.
 
+<p align="center">
+  <img src="../../images/rationality-1.png" width = "250px" alt="Robot" />
+</p>
 _Example of rationality:_
 Suppose we have an agent (a person or a machine) playing chess. In this context, making the move expected to maximize the chances of winning the game is the right decision. This exemplifies rationality because the agent is taking a decision based on reasoning and logic and towards a specifc goal which is winning the game. This is also an example of intelligence because the agent is doing the right thing according to its goal.
 
@@ -33,6 +40,8 @@ Machine learning, a subfield of AI, focuses on constructing machines that can le
 The concept of deep learning, as per our previous discussions, is challenging to encapsulate. Nonetheless, deep learning is a subset of machine learning that centers on developing machines capable of learning from data using deep neural networks. Further insights into this topic will be gained in your machine learning course.
 
 # Why AI Now?
+
+## History
 
 The history of AI dates back to the 1950s. If you'd like a quick three-minute recap of AI's history, you can watch this video:
 
@@ -68,6 +77,6 @@ Watch me below building a machine to use it for my AI projects:
 - Explain AI to a 10-year-old.
 - List two reasons for the current surge of interest in AI.
 
-# Explore
+# Explore, Share and Discuss:
 
-- Search the web and find some of the latest hardware devices that empower AI applications
+- Search the web and find some of the latest hardware devices that empower AI applications. The highest voted answer will be featured in the next lesson. Share it with us on Discord [here](https://discord.com/channels/1167059986019520563/1167060638300913786):

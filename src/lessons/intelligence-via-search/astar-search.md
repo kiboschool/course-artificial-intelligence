@@ -28,6 +28,10 @@ In our previous example, if we can inform the algorithm to prioritize the point 
 
 Based on the nature of the problem, we can design different heuristic functions. For instance, in our car example, we can use the direct line distance between the goal state and each state as a heuristic function. In the 15-Puzzle problem, we can use the number of misplaced tiles as a heuristic function. Let's modify the 15-Puzzle problem to use the A\* search algorithm and see how it performs.
 
+## Solving the 15-Puzzle Problem with A\* Search
+
+TODO - Add the 15-Puzzle problem with A\* search
+
 # Summary
 
 Heuristic functions are a crucial topic in AI as they significantly impact the performance of search algorithms. We will delve into various heuristic functions in the upcoming lesson. For now, contemplate other heuristic functions that can be applied to our car and 15-puzzle examples.

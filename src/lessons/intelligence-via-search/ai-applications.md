@@ -50,9 +50,8 @@ Artificial Intelligence (AI) has become an integral part of our daily lives, rev
 
 - Cybersecurity: AI is used to detect and prevent cyber threats by analyzing patterns of malicious activities. Companies like Darktrace employ AI for real-time threat detection.
 
-# Self-Assessment:
+# Think, Share and Discuss:
 
-Think of a use case that you haven't seen in this lesson and try to explain how AI can be used to solve it.
+Think of a use case that you haven't seen in this lesson and try to explain how AI can be used to solve it. The highest voted answer will be featured in the next lesson.
 
-Share that with us below:
-TODO: Add your answer here.
+Share it with us on Discord [here](https://discord.com/channels/1167059986019520563/1167060638300913786):
