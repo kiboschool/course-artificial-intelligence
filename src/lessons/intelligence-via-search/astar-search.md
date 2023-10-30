@@ -1,5 +1,7 @@
 ## A\* Search Algorithm
 
+Keywords: Motion Planning , Path Finding, A\*
+
 In our previous lesson, we learned about the breadth-first search and depth-first search algorithms. Both of these algorithms are blind search algorithms, which means that they do not use any additional information to guide their search. The technical term for blind search algorithms is **uninformed** search algorithms. Using uninformed search algorithms can be inefficient and computationally expensive because they do not use any additional information to guide their search. We saw that when we applied BFS to the 15-Puzzle problem. We waited for a long time for the algorithm to find the solution and sometimes it was not able to find the solution at all.
 
 In this lesson, we will learn about the A\* search algorithm, which is an **informed** search algorithm. Informed search algorithms use additional information to guide their search. This should make them more efficient and less computationally expensive than uninformed search algorithms. We will use the A\* search algorithm to solve the 15-Puzzle problem and the car path problem and compare its performance with uninformed search algorithms.

@@ -50,7 +50,7 @@ As you can see, the tree is growing as we move from one state to another. This i
 
 ## Modeling Search Trees in Code
 
-As you know from your DSA class, a tree is a special type of graph. It is a non-linear data structure that consists of nodes connected by edges. Each node can have zero or more child nodes. There are two common ways to represent a tree in code: adjacency lists and adjacency matrices. We can use the same data structures to represent our search tree. I'm going to use adjacency lists to represent the search tree in our car example.
+As you probably know from your DSA class, a tree is a special type of graph. It is a non-linear data structure that consists of nodes connected by edges. Each node can have zero or more child nodes. We can use the same data structures to represent our search tree. There are two common ways to represent a graph in code: adjacency lists and adjacency matrices. Below is an example of an adjacency list representation of the search tree for our car example.
 
 ```python
 # adjacency list representation of the search tree
@@ -73,17 +73,74 @@ search_tree = {
 
 # Solving Search Problems
 
-ALSO From your previous studies of data structures and algorithms, you are likely familiar with some algorithms that can be employed to traverse a tree. Two of the most common traversal algorithms are depth-first search (DFS) and breadth-first search (BFS). We can use these algorithms to traverse the search tree and find a path from the starting state to the goal state. We can use the same algorithms to traverse the search tree and find a path from the starting state to the goal state.
+You are also likely familiar with some algorithms that can be employed to traverse a tree. Two of the most common traversal algorithms are depth-first search (DFS) and breadth-first search (BFS). We can use these algorithms to traverse the search tree and find a path from the starting state to the goal state.
 
 For a refresher on these algorithms, you can refer to the following resources:
 
-[Video Here]
+TODO: Add links below
 
 - [Depth-First Search](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)
 - [Breadth-First Search](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
 - [Depth-First Search vs Breadth-First Search](https://www.geeksforgeeks.org/difference-between-bfs-and-dfs/)
 
+Here is also a video that explains both of them applied to a search problem:
+
+TODO: Add video
+
 ## Car Example Solution
+
+Following the same approach, we can use DFS or BFS to find a path from the starting state to the goal state in our car example problem.
+
+Here is the code for the car example using DFS and BFS. A video explaining the code is also provided below.
+
+```python
+from collections import deque
+
+class CarPath():
+    def __init__(self):
+        self.start_state = (1,0)
+        self.goal_state = (6,6)
+
+        self.state_space = []
+        self.visited = []
+        self.blocked_cells = [(1,2),(1,3),(1,4),(1,5), (3,1), (3, 2), (3, 3), (3, 4), (5,1),(5,2),(5, 3),(3,6),(4,6),(5,6)]
+
+        for i in range(7):
+            for j in range(7):
+                if (i, j) in self.blocked_cells:
+                    self.state_space.append(0)
+                else:
+                    self.state_space.append(1)
+    def find_path_bfs(self):
+       pass
+
+    def find_path_dfs(self):
+        pass
+
+    def get_neighbors(self, state):
+        neighbors = []
+        if state[0] > 0:
+            neighbors.append((state[0] - 1, state[1]))
+        if state[0] < 6:
+            neighbors.append((state[0] + 1, state[1]))
+        if state[1] > 0:
+            neighbors.append((state[0], state[1] - 1))
+        if state[1] < 6:
+            neighbors.append((state[0], state[1] + 1))
+        return neighbors
+
+
+road = CarRoad()
+path_found = road.find_path_bfs()
+print(path_found , road.visited)
+
+```
+
+You can try to complete the code above yourself before watching the video below.
+
+TODO: Add video
+
+### Solution
 
 ```python
 from collections import deque
@@ -260,4 +317,4 @@ else:
 
 ## Understanding Our Objective
 
-In our previous examples, our primary objective was to find **a path** from the starting state to the goal state. However, it's important to note that not all paths are equal; some paths are better than others. In our next lesson, we will explore how to find the shortest path from the starting state to the goal state.
+In our previous examples, our primary objective was to find **a path** from the starting state to the goal state. However, it's important to note that not all paths are equal; some paths are better than others. Later this week, we will explore how to find the shortest path from the starting state to the goal state.

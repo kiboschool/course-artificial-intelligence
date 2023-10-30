@@ -1,5 +1,12 @@
 # Course Overview
 
+## Grading
+
+- Homework 40%
+  - 4 Programming Assignments, 10% each
+- Exams 60%
+  - 6 Quizzes, 10% each
+
 This page should include:
 
 - course number and credits

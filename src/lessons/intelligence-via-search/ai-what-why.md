@@ -1,35 +1,58 @@
 # AI: What and Why
 
-In this section, we will explore rationality, intelligence, and AI. We will also delve into the reasons behind the current so much interest in AI, and we will distinguish AI from machine learning and deep learning.
-
-### Intelligence
-
 <p align="center">
   <img src="../../images/intell-1.png" alt="Robot" />
 </p>
 
-If a robot navigates city streets without colliding with anything, would you consider this robot intelligent? Many would agree, including myself. However, if a human performs the same task, you might hesitate to describe them as intelligent. On the other hand, when a person tackles a challenging math problem or quickly learns a new language, we are more inclined to label them as intelligent. As humans, we hold different perceptions of intelligence, employing distinct criteria for evaluating machines versus humans. Even scientists have varying definitions of intelligence.
+### Intelligence
 
-To take a step forward, we can define intelligence as _the ability to make the right decisions._ But what does it mean to make the right decision? To answer this question, we need to discuss the concept of rationality.
+If a robot navigates city streets without colliding with anything, would you consider this robot intelligent? Many would agree, including myself. However, if a human performs the same task, you might hesitate to describe them as intelligent. On the other hand, when a person tackles a challenging math problem or quickly learns a new language, we are more inclined to label them as intelligent.
+
+As humans, we hold different perceptions of intelligence, employing distinct criteria for evaluating machines versus humans.
+
+Intelligence has no speciifc definition. Some have been seen it as the ability to use language, form abstractions and concepts, solve problems, and acquire knowledge. In other words, intelligence is the ability to learn, understand, and think in a rational manner.
+
+## The Turing Test
+
+In the 1950s, Alan Turing, a British computer scientist, proposed a test to determine whether a machine can think. The test, known as the Turing test, involves a human evaluator who engages in a natural language conversation with two other parties, one human and one machine. If the evaluator cannot distinguish between the human and the machine, the machine is considered intelligent. This test is still used today to assess the intelligence of machines.
+
+### (Optional) Watch the video below to learn more about the Turing test:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+<iframe src="https://www.youtube.com/embed/3wLqsRLvV-c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+
+### Deinfing Intelligence
+
+Another established and common defintition of intelligence is **the ability to make the right decisions.** But what does it mean to make the right decision? To answer this question, we need to discuss the concept of rationality.
 
 ### Rationality
 
-From a scientific standpoint, rationality is the quality of being grounded in reason and logic. Therefore, a person or a machine is considered rational if their decisions are based on reasoning and logic, guided by specific goals.
+From a scientific standpoint, rationality is the quality of being grounded in reason and logic. Therefore, a person or a machine is considered rational if their decisions are based on reasoning and logic and also guided by specific goals.
 
 <p align="center">
   <img src="../../images/rationality-1.png" width = "250px" alt="Robot" />
 </p>
-_Example of rationality:_
-Suppose we have an agent (a person or a machine) playing chess. In this context, making the move expected to maximize the chances of winning the game is the right decision. This exemplifies rationality because the agent is taking a decision based on reasoning and logic and towards a specifc goal which is winning the game. This is also an example of intelligence because the agent is doing the right thing according to its goal.
 
-_Another example of rationality_
+**Example of rationality:**
+
+Suppose we have an agent (a software, a person or a machine) playing chess. In this context, making the move expected to maximize the chances of winning the game is the right decision. This exemplifies rationality because the agent is taking a decision based on reasoning and logic and towards a specifc goal which is winning the game. This is also an example of intelligence because the agent is doing the right thing according to its goal.
+
+**Another example of rationality**
+
 Imagine an agent operating a vehicle. Here, making choices aimed at maximizing the likelihood of reaching the destination safely and, perhaps, in a short time is the right course of action. This too embodies rationality, with decisions derived from reasoning and logic in pursuit of the specific goal of arriving safely and efficiently. Again, this showcases intelligence as the agent's actions align with its objective.
 
-### AI
+<aside>
 
-The science of building systems that can think and act rationally.
+**Intelligence** is the ability to make rational decisions (decision grounded in reason, logic, and knolwege).
 
-While this definition offers a general understanding of AI, there are other definitions we will explore in later stages of this course.
+</aside>
+
+## Artificial Intelligence
+
+Now we can define AI as **the science of building systems that can think and act rationally.**
+
+There are many definitions of AI, and the one we just discussed is just one of them. We will discuss other definitions later in this course.
 
 ### Machine Learning
 
@@ -64,7 +87,7 @@ Although GPUs and TPUs can be costly to purchase and operate, they are now widel
 Watch me below building a machine to use it for my AI projects:
 [Insert Video]
 
-# Summary:
+## Summary:
 
 - AI is the field of building machines that can think and act rationally (guided by reasoning, logic, knowledge, and specific goals).
 
@@ -72,11 +95,14 @@ Watch me below building a machine to use it for my AI projects:
 
 - AI is getting so much attention now due to many reasons including the availability of large public datasets and the advancement of hardware technologies.
 
-# Self Assesment:
+## Self Assesment:
 
 - Explain AI to a 10-year-old.
 - List two reasons for the current surge of interest in AI.
 
-# Explore, Share and Discuss:
+## Explore, Share and Discuss:
 
-- Search the web and find some of the latest hardware devices that empower AI applications. The highest voted answer will be featured in the next lesson. Share it with us on Discord [here](https://discord.com/channels/1167059986019520563/1167060638300913786):
+- Search the web and find some of the latest hardware devices that empower AI applications. The highest voted answer will be featured in the next lesson.
+<p style="font-size:160%;font-family:courier; color:orange;">
+💬 Share it with us on Discord <a href="https://discord.com/channels/1167059986019520563/1167060638300913786">here</a>.
+</p>

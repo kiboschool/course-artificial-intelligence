@@ -4,7 +4,9 @@ _Estimated time to finish: 60-90 minutes_
 
 ## Search Problems
 
-A search problem refers to a specific class of challenges in which an agent or algorithm is tasked with locating a solution within a clearly defined problem space. This problem space consists of a range of states or configurations, and the primary objective is to determine a series of actions that will guide us from an initial state to a desired goal state.
+A search problem refers to a specific class of problems in which an agent or algorithm is tasked with locating a solution within a clearly defined problem space.
+
+This problem space consists of a range of states or configurations, and the primary objective is to determine a series of actions that will guide us from an initial state to a desired goal state.
 
 _Let's clarify this with an Example_
 
@@ -26,30 +28,31 @@ Each of these paths represents distinct solutions to our problem. The decisions 
 **This is a search problem because:**
 
 - We have an agent (the car) that is trying to find a solution (the path) within a defined problem space (the road).
-- The problem space, or state space, consists of various states or configurations (the different positions of the car).
-- The goal is to find a sequence of actions (the path) that will lead from an initial state (the starting position of the car) to a desired goal state (the destination).
+- The problem space, or **state space**, consists of various states or configurations (the different positions of the car).
+- The goal is to find a sequence of actions that will lead from an initial state (the starting position of the car) to a desired goal state (the destination).
+
+### The 8 Queens Problem
+
+How to place 8 queens on a chessboard so that no queen can attack another queen?
+
+<p align="center">
+<img src="../../images/8-queen.png" width = "400px"/>
+</p>
+
+If we think of this problem, we can come up with the following:
+
+- There are various configurations of the queens on the chessboard.
+- The goal is to find a sequence of actions that will lead from an initial state (the starting position of the queens) to a desired goal state (the configuration of the queens on the chessboard so that no queen can attack another queen).
+
+### More Examples
+
+Retrieving relevant web pages or documents in response to a search query, finding the optimal path for data packets to travel from a source to a destination, solving some puzzles, and Determining the optimal route between two locations on a map are all examples of search problems.
 
 ## Understanding Our Objective
 
-One might question whether we are genuinely searching for something in this context. You can think of the path itself as the object of our search. Our mission is to discover the path leading us to point B (by searching).
+One might question whether we are genuinely searching for something in this context. You can think of the path itself as the object of our search. In the car example, our mission is to discover the path leading us to point B (by searching possible states).
 
-I understand selecting an arbitrary path might seem like a trivial task. However, the problem becomes more challenging when we consider other goals, such as finding the shortest path or the fastest path. These goals will lead to distinct problem formulations and, consequently, result in different solutions.
-
-### Give it a try!
-
-Think of another example of a search problem.
-
-Take 5 minutes to think about that and try to come up with some examples that fit this category. Your understanding of this concept is valuable for your learning! Don't be lazy; give it a shot. Share it with your colleagues below when you're done.
-
-<p align="center">
-<img src="../../images/5-min-timer.png" width = "300px"/>
-</p>
-
-### Share it!
-
-Look at the examples shared by your peers and instructors below, and share yours with them.
-
-Share it with us on Discord [here](https://discord.com/channels/1167059986019520563/1167060638300913786):
+Selecting an arbitrary path might seem like a trivial task. However, the problem becomes more challenging when we consider other goals, such as finding the shortest path or the fastest path. These goals will lead to distinct problem formulations and, consequently, result in different solutions.
 
 ## Modeling Search Problems
 
@@ -89,33 +92,42 @@ Let's explore our previous example of a car journeying from point A to point B a
 
 ### State Space:
 
-To model the state space, we need to consider all the possible configurations of the car. To do that, we need to decide how we will represent the car's position and the environment in which it is moving. To simplify things, we can represent the car's position as a coordinate on a grid. For example, the car's position at point A can be represented as `(1,0)`, and its position at point B can be represented as `(6,6)`. The state space will be all the possible positions of the car on the grid.
+To model the state space, we need to consider all the possible configurations of the car. To do that, we need to decide how we will represent the car's position and the **environment** in which it is moving.
+
+To simplify things, we can represent the car's position as a coordinate on a grid. For example, the car's position at point A can be represented as `(1,0)`, and its position at point B can be represented as `(6,6)`. The state space will be all the possible positions of the car on the grid.
 
 <p align="center">
 <img src="../../images/car_grid.png" width = "400px"/>
 </p>
 
-⚡ Do you feel a spark in your brain right now after seeing this image?⚡
+So, the **state space** is all the possible positions of the car on the grid. This is a finite set of states, and we can represent it as a **list** in Python.
 
-The moment I saw this image, I felt something in my brain! It's the feeling of moving from very abstract thought with absolutely no idea how to model it to having a clearer idea of how to do it. A grid? Come on, it's a list in Python.
+```python
+state_space = []
+GRID_SIZE = 6
+for i in range(GRID_SIZE):
+    for j in range(GRID_SIZE):
+        state_space.append(1)
+
+```
+
+We can also consider the blocked cells as part of the state space. In our example, blocked cells are: `(2,3) (2,4) (3,2) (3,3) (3,4)`
 
 ```python
 # 6 * 6 grid with blocked cells marked with 0
 # blocked cells are the cells that the car can't navigate to.
 # In our example, blocked cells are: (2,3) (2,4) (3,2) (3,3) (3,4)
-space = []
+state_space = []
 blocked_cells = [(2, 3), (2, 4), (3, 2), (3, 3), (3, 4)]
 GRID_SIZE = 6
 for i in range(GRID_SIZE):
     for j in range(GRID_SIZE):
         if (i, j) in blocked_cells:
-            space.append(0)
+            state_space.append(0)
         else:
-            space.append(1)
+            state_space.append(1)
 
 ```
-
-So, **state space** is all the possible positions of the car on the grid. This is a finite set of states, and we can represent it as a **list** in Python.
 
 ### Initial State:
 
@@ -145,9 +157,11 @@ actions = ["up", "down", "left", "right"]
 
 At a specific state (cell), the agent can take one of the possible actions: up, down, left, or right. For each specific action, the agent will end up in a new state (cell).
 
-`transition_model = fn(state, action) -> new_state`
+Take 10 minutes and try to write a transition model function for our can example. It's a function that takes a state and an action as input and returns a new state as output. The state in our car example is the position of the car within the grid. The action is the direction the car is moving in. For example, if the car is at position `(1,1)` and the action is `up`, the new returned position will be `(2,1)`.
 
-Now, take 10 minutes and try to write a transition model function for our can example. It's a function that takes a state and an action as input and returns a new state as output. The state in our car example is the position of the car within the grid. The action is the direction the car is moving in.
+<p align="center">
+<img src="../../images/car_grid.png" width = "400px"/>
+</p>
 
 Don't rush through it; take the 10 minutes and try. This is a crucial step in your learning process. If you can't do it, that's totally fine. You can check the solution below. But, please, try to do it first.
 
@@ -184,13 +198,46 @@ def transition_model(state, action):
 
 </Details>
 
+## Exercise The 8-Puzzle Problem
+
+The 8-puzzle problem is a puzzle invented and popularized by Noyes Palmer Chapman in the 1870s. It is played on a 3-by-3 grid with 8 square blocks labeled 1 through 8 and a blank square. Your goal is to rearrange the blocks so that they are in order. You are permitted to slide blocks horizontally or vertically into the blank square. The following shows a sequence of legal moves from an initial board position (left) to the goal position (right).
+
+<p align="center">
+<img src="../../images/sample-8-puzzle.png" width = "500px"/>
+</p>
+
+Take 15 minutes and try to model this problem. State the state space, initial state, goal state, actions, and transition model. This is a crucial step in your learning process. Don't rush through it; take the 15 minutes and try. If you can't do it, that's totally fine. You can check the solution below. But, please, try to do it first.
+
+<p align="center">
+<img src="../../images/10-min-timer.png" width = "300px"/>
+</p>
+
+Unfold the solution below and match it with your solution.
+
+<Details>
+<Summary>
+Solution
+</Summary>
+
+**State Space**: The state space is all the possible configurations of the puzzle tiles. `[[1, 3, 2], [6, 4, 7], [7, 8, None]]` and `[3, 1, 2], [6, 4, 7], [8, 7, None]]` are two examples of states in the state space.
+
+**Initial State**: The initial state is the starting configuration of the puzzle, which may initially be a scrambled arrangement of the tiles. For example, `[[1, 3, 2], [6, 4, 7], [7, 8, None]]`.
+
+**Goal State**: The goal state is the desired configuration where the tiles are arranged in ascending order. For example, `[[1, 2, 3], [4, 5, 6], [7, 8, None]]`.
+
+**Actions**: Moving the blank tile up, down, left, or right.
+
+**Transition Model**: This function defines the outcome of applying an action to a given state, resulting in a new state. For example, if the current state is `[[1, 6, 3], [8, None, 5], [4, 7, 2]]` and the action is `up`, the new state will be `[[1, 6, 3], [8, 7, 5], [4, None, 2]]`
+
+<p align="center">
+<img src="../../images/8-puzzle-trans-example.png" width = "500px"/>
+</p>
+
+</Details>
+
 ## 🎉 Congratulations!🎉
 
 You have just completed modeling your first search problem!
-
-## Solution
-
-We haven't yet discussed the goal test and the solution. Our focus on this lesson was on modeling the problem. We will discuss the goal test and the solution in the next lesson.
 
 ## More Practice
 
@@ -213,3 +260,4 @@ If you feel confident about modeling search problems, you can move on to the nex
 A 5-point (optional) exercise
 Read the problem in this link and explain it in your own words to one of your colleagues. Then, try to solve it together. Submit your solution to this link. These 5 points will be added to your final project grade.
 Share the link with your colleagues on Discord.
+```

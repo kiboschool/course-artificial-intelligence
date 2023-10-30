@@ -54,4 +54,6 @@ Artificial Intelligence (AI) has become an integral part of our daily lives, rev
 
 Think of a use case that you haven't seen in this lesson and try to explain how AI can be used to solve it. The highest voted answer will be featured in the next lesson.
 
-Share it with us on Discord [here](https://discord.com/channels/1167059986019520563/1167060638300913786):
+<p style="font-size:160%;font-family:courier; color:orange;">
+💬 Share it with us on Discord <a href="https://discord.com/channels/1167059986019520563/1167060638300913786">here</a>.
+</p>

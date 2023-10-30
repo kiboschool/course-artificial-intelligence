@@ -3,13 +3,17 @@
 <p align="center">
   <img src="../../images/path-finding-img.png" alt="Path Finding" />
 </p>
-Welcome to the first week of the course. In this week, we will begin with an introduction to the field of AI and discuss some of the key concepts that you need to grasp before you start building AI systems. Subsequently, we will introduce the concept of search problems and explore how to solve them using various search algorithms. We will also delve into the application of these search algorithms in designing artificial agents capable of planning.
+Welcome to the first week of the course. In this week, you will be introduced to the field of AI and fundamental concepts necessary for building AI systems. You'll learn about search problems and how to solve them using different search algorithms. Additionally, you'll explore how these algorithms are applied to create artificial agents capable of planning.
 
-The assignment for this week entails building a shipping route finder using the A\* search algorithm.
+## This Week Assessments:
 
-Upon completing this week, you will be able to:
+- Quiz (10% of your grade).
+- Coding Assignment (5% of your grade).
+
+The coding assignment of this week is "Building a shipping route planner using A\* search algorithm".
+
+**Upon completing this week, you will be able to:**
 
 - Describe the field of AI and its fundamental concepts.
-- Define search problems and learn how to solve them with - various search algorithms.
+- Define search problems and learn how to solve them with various search algorithms.
 - Apply search algorithms to the design of artificial agents capable of planning.
-- Build a shipping route finder utilizing the A\* search algorithm.
