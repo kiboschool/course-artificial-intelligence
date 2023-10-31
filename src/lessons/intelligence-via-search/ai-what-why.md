@@ -1,5 +1,7 @@
 # AI: What and Why
 
+_Estimated time to finish: 30-45 minutes_
+
 <p align="center">
   <img src="../../images/intell-1.png" alt="Robot" />
 </p>
@@ -8,9 +10,10 @@
 
 If a robot navigates city streets without colliding with anything, would you consider this robot intelligent? Many would agree, including myself. However, if a human performs the same task, you might hesitate to describe them as intelligent. On the other hand, when a person tackles a challenging math problem or quickly learns a new language, we are more inclined to label them as intelligent.
 
+<aside>
 As humans, we hold different perceptions of intelligence, employing distinct criteria for evaluating machines versus humans.
-
-Intelligence has no speciifc definition. Some have been seen it as the ability to use language, form abstractions and concepts, solve problems, and acquire knowledge. In other words, intelligence is the ability to learn, understand, and think in a rational manner.
+</aside>
+Some have been seen intelligence as the ability to use language, form abstractions and concepts, solve problems, and acquire knowledge.
 
 ## The Turing Test
 
@@ -22,13 +25,13 @@ In the 1950s, Alan Turing, a British computer scientist, proposed a test to dete
 <iframe src="https://www.youtube.com/embed/3wLqsRLvV-c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
-### Deinfing Intelligence
+## Deinfing Intelligence
 
-Another established and common defintition of intelligence is **the ability to make the right decisions.** But what does it mean to make the right decision? To answer this question, we need to discuss the concept of rationality.
+An established and common definition of intelligence is **the ability to make the correct decisions.** But what does it mean to make the correct or right decision? To answer this question, we need to delve into the concept of rationality.
 
 ### Rationality
 
-From a scientific standpoint, rationality is the quality of being grounded in reason and logic. Therefore, a person or a machine is considered rational if their decisions are based on reasoning and logic and also guided by specific goals.
+From a scientific standpoint, rationality is the quality of being grounded in reason and logic. Therefore, a person or a machine is considered rational if their decisions are based on reasoning and logic and are also guided by specific goals.
 
 <p align="center">
   <img src="../../images/rationality-1.png" width = "250px" alt="Robot" />
@@ -36,11 +39,11 @@ From a scientific standpoint, rationality is the quality of being grounded in re
 
 **Example of rationality:**
 
-Suppose we have an agent (a software, a person or a machine) playing chess. In this context, making the move expected to maximize the chances of winning the game is the right decision. This exemplifies rationality because the agent is taking a decision based on reasoning and logic and towards a specifc goal which is winning the game. This is also an example of intelligence because the agent is doing the right thing according to its goal.
+Suppose we have an agent (a software, a person or a machine) playing chess. In this context, making the move expected to maximize the chances of winning the game is the right decision. This exemplifies rationality because the agent is taking a decision based on reasoning and logic and towards a specifc goal which is winning the game.
 
 **Another example of rationality**
 
-Imagine an agent operating a vehicle. Here, making choices aimed at maximizing the likelihood of reaching the destination safely and, perhaps, in a short time is the right course of action. This too embodies rationality, with decisions derived from reasoning and logic in pursuit of the specific goal of arriving safely and efficiently. Again, this showcases intelligence as the agent's actions align with its objective.
+Imagine an agent operating a vehicle. Here, making choices aimed at maximizing the likelihood of reaching the destination safely and, perhaps, in a short time is the right course of action. This too embodies rationality, with decisions derived from reasoning and logic in pursuit of the specific goal of arriving safely and efficiently.
 
 <aside>
 
@@ -48,11 +51,14 @@ Imagine an agent operating a vehicle. Here, making choices aimed at maximizing t
 
 </aside>
 
-## Artificial Intelligence
+## Artificial Intelligence (AI)
 
-Now we can define AI as **the science of building systems that can think and act rationally.**
+<aside>
+AI is the science of building systems that can think and act rationally.
 
-There are many definitions of AI, and the one we just discussed is just one of them. We will discuss other definitions later in this course.
+</aside>
+
+In addition to this definition, there are many definitions of AI, and the one we just discussed is just one of them. We will explore other definitions later in this course.
 
 ### Machine Learning
 
@@ -60,7 +66,7 @@ Machine learning, a subfield of AI, focuses on constructing machines that can le
 
 ### Deep Learning
 
-The concept of deep learning, as per our previous discussions, is challenging to encapsulate. Nonetheless, deep learning is a subset of machine learning that centers on developing machines capable of learning from data using deep neural networks. Further insights into this topic will be gained in your machine learning course.
+Deep learning is a subset of machine learning that centers on developing machines capable of learning from data using **deep neural networks**. Further insights into this topic will be gained in your machine learning course.
 
 # Why AI Now?
 
@@ -72,7 +78,7 @@ The history of AI dates back to the 1950s. If you'd like a quick three-minute re
 <iframe src="https://www.youtube.com/embed/056v4OxKwlI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
-The question we want to address is why AI is currently experiencing a surge in attention. There are several significant factors contributing to this phenomenon, and I will highlight the two most important ones:
+The question we want to address here is why AI is currently experiencing a surge in attention. There are several significant factors contributing to this phenomenon, and I will highlight the two most important ones:
 
 ## Data
 
@@ -84,16 +90,11 @@ Advancements in hardware technology, especially the development of high-performa
 
 Although GPUs and TPUs can be costly to purchase and operate, they are now widely accessible in the cloud, making them affordable for a broader audience. This accessibility has facilitated AI researchers and practitioners in experimenting with more intricate models and larger datasets without requiring substantial investments in expensive hardware.
 
-Watch me below building a machine to use it for my AI projects:
-[Insert Video]
+Here a screenshot of the [Google Cloud Platform](https://cloud.google.com/) which provides access to GPUs and TPUs:
 
-## Summary:
-
-- AI is the field of building machines that can think and act rationally (guided by reasoning, logic, knowledge, and specific goals).
-
-- The term "agent" is used to describe an entity striving to achieve specific objectives. An agent can be a person, a machine, software, or a combination of these elements.
-
-- AI is getting so much attention now due to many reasons including the availability of large public datasets and the advancement of hardware technologies.
+<p align="center">
+  <img src="../../images/gcp-gpu.png"  />
+</p>
 
 ## Self Assesment:
 
@@ -104,5 +105,13 @@ Watch me below building a machine to use it for my AI projects:
 
 - Search the web and find some of the latest hardware devices that empower AI applications. The highest voted answer will be featured in the next lesson.
 <p style="font-size:160%;font-family:courier; color:orange;">
-💬 Share it with us on Discord <a href="https://discord.com/channels/1167059986019520563/1167060638300913786">here</a>.
+💬 Share it with us on Discord <a target = "_blank" href="https://discord.com/channels/1167059986019520563/1167060638300913786">here</a>.
 </p>
+
+## 📒 Summary:
+
+- AI is the field of building machines that can think and act rationally (guided by reasoning, logic, knowledge, and specific goals).
+
+- The term "agent" is used to describe an entity striving to achieve specific objectives. An agent can be a person, a machine, software, or a combination of these elements.
+
+- AI is getting so much attention now due to many reasons including the availability of large public datasets and the advancement of hardware technologies.
