@@ -1,10 +1,12 @@
-# Intelligence with Search
+# Intelligence Via Search
 
 _Estimated time to finish: 60-90 minutes_
 
 ## Ready for some fun?
 
 Would you be interested in learning how to program a computer to solve mazes, puzzles, find paths, or optimize item arrangements? What if you could also use this knowledge to minimize your time spent in traffic or create a system that plays chess or solves a Rubik's cube? This is precisely the essence of our lesson on "**Search**."
+
+<img src="../../images/excuse-me-search.png" />
 
 ## Search Problems
 
@@ -250,17 +252,52 @@ Solution
 
 You have just completed modeling your first search problem!
 
-## More Practice
-
-If you feel confident about modeling search problems, you can move on to the next lesson in which we discuss searching algorithms. If not, please try the exercises in the link below. Remember to reach out for help if you need.
-
 ### Self Assessment!
 
 - What is a search problem?
 - What are the components of a search problem?
 - Give a complete problem formulation for each of the following problems. Choose a formulation that is precise enough to be implemented.
-  - There is an n×n grid of squares, each square initially being either unpainted floor or a bottomless pit. You start standing on an unpainted floor square, and can either paint the square under you or move onto an adjacent unpainted floor square. You want the whole floor painted.
-  - Your goal is to navigate a robot out of a maze. The robot starts in the center of the maze facing north. You can turn the robot to face north, east, south, or west. You can direct the robot to move forward a certain distance, although it will stop before hitting a wall.
+
+  1. There is an n×n grid of squares, each square initially being either unpainted floor or a bottomless pit. You start standing on an unpainted floor square, and can either paint the square under you or move onto an adjacent unpainted floor square. You want the whole floor painted.
+
+  2. Your goal is to navigate a robot out of a maze. The robot starts in the center of the maze facing north. You can turn the robot to face north, east, south, or west. You can direct the robot to move forward a certain distance, although it will stop before hitting a wall.
+
+Unfold the sample solutions below to check your answers.
+
+<Details>
+<Summary>
+Sample Solutions
+</Summary>
+
+**1. n×n grid of squares**
+
+**State space:** all possible configurations of the floor tiles and your position.
+
+**Initial state:** all floor squares unpainted, you start standing on one square unpainted
+floor square.
+**Actions:** paint square, move to adjacent floor square.
+
+**Goal test:** all floor squares painted.
+
+**Successor function:** paint current tile, move to adjacent unpainted floor tile.
+
+**2. navigate a robot out of a maze**
+
+We’ll define the coordinate system so that the center of the maze is at (0, 0), and the
+maze itself is a square from (−1, −1) to (1, 1).
+
+**State space:** all possible locations and directions of the robot.
+
+**Initial state:** robot at coordinate (0, 0), facing North.
+
+**Actions:** turn north, turn south, turn east, turn west, move forward.
+
+**Goal test:** either |x| > 1 or |y| > 1 where (x, y) is the current location.
+
+**Successor function:** move forwards any distance d; change direction robot it facing.
+Cost function: total distance moved.
+
+</Details>
 
 <!--
 We hear you saying, "I want to practice more." We got you covered! I have prepared a set of exercises for you to practice modeling search problems.

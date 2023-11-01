@@ -1,12 +1,18 @@
 # Search Algorithms
 
-_Estimated Time: 90 minutes_
+_Estimated Time: 90 - 180 minutes_
 
-Now that we understand how to model a problem as a search problem, we can begin to explore how to solve it. In this lesson, we will examine some of the most common search algorithms used to solve search problems.
+<img src="../../images/lets-solve-maze.png" />
+
+<aside>
+
+A **search algorithm** takes a search problem as input and returns a solution or indicates that no solution exists.
+
+</aside>
 
 ## Search Trees
 
-Starting from an initial state, there are typically several actions that can be taken to transition to a new state. From that new state, there are again several actions that can be taken to move to yet another state, and so on. This process repeats until a goal state is reached. Here is a simple example:
+Before writing any code, it is useful to visualize our search space. Starting from an initial state, there are typically several actions that can be taken to transition to a new state. From that new state, there are again several actions that can be taken to move to yet another state, and so on. This process repeats until a goal state is reached. Here is a simple example:
 
 Suppose we have an 8-puzzle game, and we want to find a path from the initial state to the goal state. The initial state might be something like this:
 
@@ -26,7 +32,7 @@ From each new state, we can again move different tiles. Each of these moves will
 <img src="../../images/8-puzzle-3.jpeg" />
 </p>
 
-As we see, this process can be visualized as a tree, where each node represents a state, and each edge represents an action. This is called a **search tree**. The complete tree can be very large to visualize here, but you get the idea.
+As we see, this process can be visualized as a tree, where each node represents a state, and each edge represents an action. This is called a **search tree**. Each node in the serach tree corresponds to a state in the state space and each edge corresponds to an action. The root node of the tree represents the initial state.The complete tree can be very large to visualize here, but you get the idea.
 
 ## Search Tree for Car Example
 
@@ -50,9 +56,9 @@ From the point `(2, 0)`, the car can move to point `(2, 1)` or `(3, 0)` . Simila
 
 ## Modeling Search Trees in Code
 
-There are different ways to model a search tree, our state space, in code. Search tree, as any other tree, is a special type of graph and, as you know from your DSA class, a graph is a non-linear data structure that consists of nodes connected by edges. Each node can have zero or more child nodes.
+There are different ways to model a search tree, which represents our state space, in code. A search tree, like any other tree, is a special type of graph. As you might recall from your DSA class, a graph is a non-linear data structure consisting of nodes connected by edges. Each node can have zero or more child nodes.
 
-Below is a typical graph data structure in Python:
+Below is a typical graph representation in Python:
 
 ```python
 class Vertex:
@@ -92,226 +98,309 @@ class Graph:
 
 ```
 
-If this code doesn't look familiar to you, check out this [video](https://www.youtube.com/watch?v=zaBhtODEL0w) for a refresher on graphs.
+### Graphs Refresher
 
-Here is a slightly modified version of the code above that will help us model our search tree better (I will explain the modifications below):
+If the above code doesn't look familiar to you, or you need a refresher on Graphs, check out this [lesson](../../refreshers/graphs.md).
+
+Here is a slightly modified version of the code above that will help us model our search tree better:
 
 ```python
 class Node:
-     """A node in a search tree. Contains a pointer to the parent (the node
-    that this is a successor of) and to the actual state for this node. Note
-    that if a state is arrived at by two paths, then there are two nodes with
-    the same state. Also includes the action that got us to this state, and
-    the total path_cost (also known as g) to reach the node."""
-    def __init__(self, state, parent, action):
-        self.state = state
-        self.parent = parent
-        self.action_to_self = action
 
-    def __repr__(self):
-        return self.state
+  def __init__(self, state, parent=None, attributes=None):
+    self.state = state  # for each node to hold its state
+    self.parent = parent  # the node to keep track of its parent
+    self.attributes = attributes  # to hold any other attributes
 
-    def __eq__(self, other):
-        return isinstance(other, Node) and self.state == other.state
+  def __repr__(self):
+    return str(self.state)
 
-    def __hash__(self):
-        return hash(self.state)
+  def __eq__(self, other):
+    return isinstance(other, Node) and self.state == other.state
+
+  def __hash__(self):
+    return hash(self.state)
 
 
 class Graph:
-    def __init__(self):
-        self.graph = {}  # dictionary of node -> list of connected vertices
 
-    def add_node(self, node: Node):
-        self.graph.setdefault(node, [])
+  def __init__(self):
+    self.graph = {}  # dictionary of node -> list of connected vertices
 
-    def add_edge(self, node1: Node, node2: Node, weight: int):
-        if node1 not in self.graph:
-            self.add_node(node1)
-        if node2 not in self.graph:
-            self.add_node(node2)
-        if (node2, weight) not in self.graph[node1]:  # Prevent duplicate edges
-            self.graph[node1].append((node2, weight))
+  def add_node(self, node: Node):
+    self.graph.setdefault(node, [])
 
-    def get_neighbors(self, node: Node):
-        return self.graph.get(node, None)
+  def add_edge(self, node1: Node, node2: Node, weight=1):
+    if node1 not in self.graph:
+      self.add_node(node1)
+    if node2 not in self.graph:
+      self.add_node(node2)
+    if (node2, weight) not in self.graph[node1]:  # Prevent duplicate edges
+      self.graph[node1].append((node2, weight))
 
-    def __str__(self):
-        return "\n".join(f"{node.state}: {', '.join([f'{v.state} ({w})' for v, w in edges])}" for node, edges in self.graph.items())
+  def get_neighbors(self, node: Node):
+    return self.graph.get(node, None)
+
+  def get_node(self, state):
+  # This function should return a node with a given state if it exists in the graph
+    for node in self.graph:
+        if node.state == state:
+            return node
+    return None
+
+
+  def __str__(self):
+    return "\n".join(
+        f"{node.state}: {', '.join([f'{v.state} ({w})' for v, w in edges])}"
+        for node, edges in self.graph.items())
+
 ```
 
-Here are some notes about the modified code above:
+Here are the changes I made to the code above:
 
-- I changed the name of the class `Vertex` to `Node` to better reflect what it represents and also to match the terminology we use in our lessons.
+- Changed the name of the class `Vertex` to `Node` to better reflect what it represents and also to match the terminology we use in our lessons.
+- Changed the name of the attribute `name` to `state`.
+- Added a new attribute `parent` to keep track of the parent node.
+- Added a new attribute `attributes` to hold any other attributes we might need.
+
+## Coding the Car Example Search Tree
+
+```python
+def build_car_nav_graph(blocked_cells):
+  graph = Graph()
+  GRID_SIZE = 7
+  for i in range(GRID_SIZE):
+      for j in range(GRID_SIZE):
+          if (i, j) in blocked_cells:
+              continue
+
+          current_node = Node((i, j))
+          graph.add_node(current_node)
+
+          # Check and add right neighbor
+          if j + 1 < GRID_SIZE:
+              right_node = Node((i, j + 1))
+              if right_node.state not in blocked_cells:
+                  graph.add_edge(current_node, right_node)
+
+          # Check and add bottom neighbor
+          if i + 1 < GRID_SIZE:
+              bottom_node = Node((i + 1, j))
+              if bottom_node.state not in blocked_cells:
+                  graph.add_edge(current_node, bottom_node)
+
+          # Check and add left neighbor
+          if j - 1 >= 0:
+              left_node = Node((i, j - 1))
+              if left_node.state not in blocked_cells:
+                  graph.add_edge(current_node, left_node)
+
+          # Check and add top neighbor
+          if i - 1 >= 0:
+              top_node = Node((i - 1, j))
+              if top_node.state not in blocked_cells:
+                  graph.add_edge(current_node, top_node)
+
+  return graph
+
+
+
+blocked_cells = [(1,2), (1,3) ,(1,4) ,(1,5), (3,1), (3,2), (3,3), (3,4), (5,1), (5,2),(5,3),(3,6), (4,6), (5,6)]
+
+graph = build_car_nav_graph(blocked_cells)
+print(graph)
+```
 
 # Solving Search Problems
 
 You are also likely familiar with some algorithms that can be employed to traverse a tree. Two of the most common traversal algorithms are depth-first search (DFS) and breadth-first search (BFS). We can use these algorithms to traverse the search tree and find a path from the starting state to the goal state.
 
-For a refresher on these algorithms, you can refer to the following resources:
+For a refresher on these algorithms, you can refer to this lesson: [DFS and BFS](../../refreshers/search-algorithms.md).
 
-TODO: Add links below
-
-- [Depth-First Search](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)
-- [Breadth-First Search](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
-- [Depth-First Search vs Breadth-First Search](https://www.geeksforgeeks.org/difference-between-bfs-and-dfs/)
-
-Here is also a video that explains both of them applied to a search problem:
-
-TODO: Add video
-
-## Car Example Solution
-
-Following the same approach, we can use DFS or BFS to find a path from the starting state to the goal state in our car example problem.
+## Finding a Path Using DFS and BFS
 
 Here is the code for the car example using DFS and BFS. A video explaining the code is also provided below.
 
 ```python
-def build_maze_graph(blocked_cells):
-    graph = Graph()
+def bfs(graph, start_node, end_node):
+  queue = deque([start_node])
+  visited = set()
+  visited_order = []  # List to store the order of visited nodes
 
-    for i in range(6):
-        for j in range(6):
-            if (i, j) not in blocked_cells:
-                current_node = Node((i, j), None, None)
-                graph.add_node(current_node)
+  while queue:
+      current_node = queue.popleft()
 
-                # Check and add left neighbor
-                if j > 0 and (i, j-1) not in blocked_cells:
-                    left_node = Node((i, j-1), None, None)
-                    graph.add_edge(current_node, left_node, 1)
+      # Add the current node to the visited list before marking it as visited
+      visited_order.append(current_node)
 
-                # Check and add top neighbor
-                if i > 0 and (i-1, j) not in blocked_cells:
-                    top_node = Node((i-1, j), None, None)
-                    graph.add_edge(current_node, top_node, 1)
+      if current_node == end_node:
+          return reconstruct_path(current_node, visited_order)  # Pass the visited_order list
 
-    return graph
+      visited.add(current_node)
 
+      for neighbor, _ in graph.get_neighbors(current_node):
+          if neighbor not in visited and neighbor not in queue:
+              neighbor.parent = current_node
+              queue.append(neighbor)
+
+  return None
+
+
+def reconstruct_path(end_node, visited_order):
+  path = []
+  while end_node:
+      path.append(end_node)
+      end_node = end_node.parent
+  path.reverse()
+
+  # Print the order of visited nodes
+  print("Visited Order:", " -> ".join(map(str, visited_order)))
+
+  return path
+
+start_node = Node((1, 0))
+end_node = Node((6, 6))
+path = bfs(graph, start_node, end_node)
+if path:
+    print("Path:", " -> ".join(map(str, path)))
+else:
+    print("No path found.")
 
 ```
+
+Notes on the code above:
+
+- The visited_order list is used to store the order of visited nodes. This is useful for debugging and visualization purposes. It is not required for the algorithm to work.
+- The reconstruct_path function is used to reconstruct the path from the starting node to the goal node. It takes the goal node and moves backward to the starting node using the parent attribute of each node. It returns a list of nodes that represent the path from the starting node to the goal node.
+
+## DFS
 
 ```python
-from collections import deque
 
-def bfs(graph, start_state, goal_state):
-    start = Node(start_state, None, None)
-    goal = Node(goal_state, None, None)
-    frontier = deque([start])
-    explored = set()
+def dfs(graph, start_node, end_node):
+  stack = [start_node]
+  visited = set()
+  visited_order = []  # to store the visited nodes in order
 
-    while frontier:
-        current_node = frontier.popleft()
+  while stack:
+      current_node = stack.pop()
+      if current_node in visited:
+          continue
 
-        if current_node == goal:
-            # reconstruct the path
-            path = []
-            while current_node:
-                path.append(current_node.state)
-                current_node = current_node.parent
-            return path[::-1]
+      visited_order.append(current_node)  # append the node to the visited_order list
 
-        explored.add(current_node)
+      if current_node == end_node:
+          print("Visited Order:", " -> ".join(map(str, visited_order)))
+          return reconstruct_path(current_node, visited_order)
 
-        for neighbor, _ in graph.get_neighbors(current_node) or []:
-            if neighbor not in frontier and neighbor not in explored:
-                neighbor.parent = current_node
-                frontier.append(neighbor)
+      visited.add(current_node)
+      for neighbor, _ in graph.get_neighbors(current_node):
+          if neighbor not in visited:
+              neighbor.parent = current_node
+              stack.append(neighbor)
 
-    return None
+  print("Visited Order:", " -> ".join(map(str, visited_order)))
+  return None
 
-```
 
-```python
-def dfs(graph, start_state, goal_state):
-    start = Node(start_state, None, None)
-    goal = Node(goal_state, None, None)
-    stack = [start]
-    explored = set()
+def reconstruct_path(end_node, visited_order):
+  path = []
+  while end_node:
+      path.append(end_node)
+      end_node = end_node.parent
+  path.reverse()
 
-    while stack:
-        current_node = stack.pop()
+  # Print the order of visited nodes
+  print("Visited Order:", " -> ".join(map(str, visited_order)))
 
-        if current_node == goal:
-            # reconstruct the path
-            path = []
-            while current_node:
-                path.append(current_node.state)
-                current_node = current_node.parent
-            return path[::-1]
+  return path
 
-        explored.add(current_node)
 
-        for neighbor, _ in graph.get_neighbors(current_node) or []:
-            if neighbor not in stack and neighbor not in explored:
-                neighbor.parent = current_node
-                stack.append(neighbor)
-
-    return None
+path = dfs(graph, graph.get_node((1, 0)), graph.get_node((6, 6)))
+if path:
+    print("Path:", " -> ".join(map(str, path)))
+else:
+    print("No path found.")
 
 ```
-
-```python
-blocked_cells = [(1,2),(1,3),(1,4),(1,5), (3,1), (3, 2), (3, 3), (3, 4), (5,1),(5,2),(5, 3),(3,6),(4,6),(5,6)]
-maze_graph = build_maze_graph(blocked_cells)
-
-# Using BFS
-path_bfs = bfs(maze_graph, (0,1), (5,5))
-print("Path using BFS:", path_bfs)
-
-# Using DFS
-path_dfs = dfs(maze_graph, (0,1), (5,5))
-print("Path using DFS:", path_dfs)
-
-```
-
-```python
-from collections import deque
-
-class CarPath():
-    def __init__(self):
-        self.start_state = (1,0)
-        self.goal_state = (6,6)
-
-        self.state_space = []
-        self.visited = []
-        self.blocked_cells = [(1,2),(1,3),(1,4),(1,5), (3,1), (3, 2), (3, 3), (3, 4), (5,1),(5,2),(5, 3),(3,6),(4,6),(5,6)]
-
-        for i in range(7):
-            for j in range(7):
-                if (i, j) in self.blocked_cells:
-                    self.state_space.append(0)
-                else:
-                    self.state_space.append(1)
-    def find_path_bfs(self):
-       pass
-
-    def find_path_dfs(self):
-        pass
-
-    def get_neighbors(self, state):
-        neighbors = []
-        if state[0] > 0:
-            neighbors.append((state[0] - 1, state[1]))
-        if state[0] < 6:
-            neighbors.append((state[0] + 1, state[1]))
-        if state[1] > 0:
-            neighbors.append((state[0], state[1] - 1))
-        if state[1] < 6:
-            neighbors.append((state[0], state[1] + 1))
-        return neighbors
-
-
-road = CarRoad()
-path_found = road.find_path_bfs()
-print(path_found , road.visited)
-
-```
-
-You can try to complete the code above yourself before watching the video below.
-
-TODO: Add video
 
 ## Understanding Our Objective
 
-In our previous examples, our primary objective was to find **a path** from the starting state to the goal state. We used BFS and DFS to solve the problem. However, it's important to note that not all paths are equal; some paths are better than others. Later this week, we will explore how to find the shortest path from the starting state to the goal state.
+In our previous examples, our primary objective was to find **a path** from the starting state to the goal state. We used BFS and DFS to solve the problem. However, it's important to note that not all paths are equal; some paths are better than others. Later this week, we will explore how to find the optimal path from the starting state to the goal state.
+
+## Evaluating Search Algorithms
+
+When evaluating search algorithms, we typically consider the following criteria:
+
+- Completeness
+- Optimality
+- Time complexity
+- Space complexity
+
+### Completeness
+
+If the algorithm is guaranteed to find a solution if one exists, then we say that the algorithm is complete. **Both BFS and DFS are complete algorithms**.
+
+### Optimality
+
+If the algorithm is guaranteed to find the optimal solution (lowest path code), then we say that the algorithm is optimal. **BFS is optimal, but DFS is not**.
+
+### Time Complexity
+
+Time complexity is the number of nodes that are expanded during the search. We typically use big-O notation to express the time complexity of an algorithm.
+The time complexity of a Breadth-First Search (BFS) algorithm is typically **O(V + E)**, where V is the number of vertices and E is the number of edges in the graph being traversed. The time complexity of a Depth-First Search (DFS) algorithm is typically **O(V)** where V is the number of vertices (nodes) in the tree.
+
+### Space Complexity
+
+Space complexity is the maximum number of nodes that are stored in memory during the search. We use big-O notation to express the space complexity as well.
+The space complexity of a Breadth-First Search (BFS) algorithm is typically O(V), where V is the number of vertices in the graph being traversed.In the case of an iterative DFS using a stack on a tree, the space complexity is O(h) where "h" is the height of the tree.
+
+A simple indicator for us to use could be the number of nodes expanded during the search(how many nodes we visit during the search until we reach the goal).
+
+## Which one is better?
+
+The choice between Breadth-First Search (BFS) and Depth-First Search (DFS) depends on the specific characteristics of the problem you are trying to solve. Neither one is universally "better" than the other; they each have their own strengths and weaknesses.
+
+Here are some considerations for when to use each search algorithm:
+
+Use **BFS** when:
+
+- You want to find the shortest path or the minimum number of steps to reach a goal. BFS explores nodes level by level, so it is guaranteed to find the shortest path in an unweighted graph.
+- You need to visit all nodes at a given level before moving on to the next level.
+- The graph has a tree structure, and you want to visit all nodes at the same depth before moving to the next level.
+- You want to avoid deep recursion, which can be an issue in DFS on very deep graphs.
+
+Use **DFS** when:
+
+- You are interested in exploring as deeply as possible along a branch before backtracking. DFS is well-suited for tasks like finding paths or cycles.
+
+- You have limited memory resources because, in general, DFS can use less memory (stack space) than BFS.
+
+- You are working with a tree or a graph with a limited depth, and you prefer a simple recursive implementation.
+
+- You want to find multiple solutions or all possible paths from a start node to a goal node.
+
+## More Search Algorithms
+
+There are many other search algorithms ou there.Here is a list of some of them:
+
+- Greedy Best-First Search
+- A\* Search
+- Iterative Deepening Search
+- Bidirectional Search
+- Depth-Limited Search
+- Iterative Deepening Depth-First Search
+- Recursive Best-First Search
+- Hill Climbing Search
+- Beam Search
+
+And more. You can read more about them [here](https://www.geeksforgeeks.org/searching-algorithms/).
+
+In this week, besides BFS and DFS, we will also learn about A\* Search algorithm. Next week, we will learn more search algorithms suitable for solving more complex problems.
+
+## Self Assesment:
+
+- Pick a search problem and write a complete solution for it using BFS and DFS. You can use the code above as a starting point. Example problems include:
+  - 8-puzzle
+  - 8-queens
+  - Maze

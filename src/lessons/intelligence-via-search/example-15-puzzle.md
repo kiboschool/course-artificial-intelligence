@@ -7,13 +7,13 @@ The 15 Puzzle, also known as the 15-Puzzle, is an exemplary sliding puzzle game 
 Given the problem above, let's define the search problem and solve it.
 
 **State Space:**
-Encompasses all potential configurations of the puzzle board.
+All potential configurations of the puzzle board.
 
-**Initial State:** Represents the starting configuration of the puzzle, which may initially be a scrambled arrangement of the tiles.
+**Initial State:** A scrambled arrangement of the tiles.
 
 **Goal State:** The desired configuration where the tiles are arranged in ascending order.
 
-**Actions:** Moving a tile into the empty space, either horizontally or vertically.
+**Actions:** Moving a tile into the empty space (up, down, left, or right).
 
 **Transition Model:** This model defines the outcome of applying an action to a given state, resulting in a new state.
 
