@@ -13,11 +13,15 @@
   - [AI: What and Why](lessons/intelligence-via-search/ai-what-why.md)
   - [AI Applications](lessons/intelligence-via-search/ai-applications.md)
   - [Search Problems](lessons/intelligence-via-search/search-problems.md)
-  - [Search Problem Formulation](lessons/intelligence-via-search/search-problem-formulation.md)
   - [Search Algorithms](lessons/intelligence-via-search/search-algorithms.md)
-  - [15 Puzzle Example](lessons/intelligence-via-search/example-15-puzzle.md)
-  - [a-star Search Algorithm](lessons/intelligence-via-search/astar-search.md)
+  - [Practice Problems](lessons/intelligence-via-search/practice-problems.md)
+  - [Informed Search](lessons/intelligence-via-search/informed-search.md)
+
   - [Assignment](lessons/intelligence-via-search/assignment.md)
+
+<!-- - [Search Problem Formulation](lessons/intelligence-via-search/search-problem-formulation.md)
+
+-->
 
 ### Week 2
 

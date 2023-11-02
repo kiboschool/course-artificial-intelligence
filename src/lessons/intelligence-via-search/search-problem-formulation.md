@@ -1,4 +1,4 @@
-# Search Problem Formulation
+# Search Problem Formulation [draft]
 
 Before we start solving a problem, below are useful questions to ask:
 

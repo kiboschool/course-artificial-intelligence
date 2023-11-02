@@ -58,11 +58,11 @@ AI is the science of building systems that can think and act rationally.
 
 </aside>
 
-In addition to this definition, there are many definitions of AI, and the one we just discussed is just one of them. We will explore other definitions later in this course.
+In addition to this definition, there are many definitions of AI, and the one we just discussed is just one of them.
 
 ### Machine Learning
 
-Machine learning, a subfield of AI, focuses on constructing machines that can learn from data or, in other words, make rational decisions based on knowledge acquired from the data.
+Machine learning, a subfield of AI, focuses on building systems that can learn from data or, in other words, make rational decisions based on knowledge acquired from the data.
 
 ### Deep Learning
 
@@ -70,15 +70,13 @@ Deep learning is a subset of machine learning that centers on developing machine
 
 # Why AI Now?
 
-## History
-
 The history of AI dates back to the 1950s. If you'd like a quick three-minute recap of AI's history, you can watch this video:
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0;">
 <iframe src="https://www.youtube.com/embed/056v4OxKwlI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
-The question we want to address here is why AI is currently experiencing a surge in attention. There are several significant factors contributing to this phenomenon, and I will highlight the two most important ones:
+The question we want to address here is why AI is currently experiencing a surge in attention. There are several significant factors contributing to this phenomenon, I will highlight the two most important ones:
 
 ## Data
 
@@ -103,15 +101,16 @@ Here a screenshot of the [Google Cloud Platform](https://cloud.google.com/) whic
 
 ## Explore, Share and Discuss:
 
-- Search the web and find some of the latest hardware devices that empower AI applications. The highest voted answer will be featured in the next lesson.
-<p style="font-size:160%;font-family:courier; color:orange;">
-💬 Share it with us on Discord <a target = "_blank" href="https://discord.com/channels/1167059986019520563/1167060638300913786">here</a>.
-</p>
+- Search the web and find some of the latest hardware devices that empower AI applications.
+
+<p style=" align:center;font-size:160%;font-family:courier; color:orange;">
+  💬 Share it with us on Discord <a target = "_blank" href="https://discord.com/channels/1167059986019520563/1167060638300913786">here</a>.
+  </p>
 
 ## 📒 Summary:
 
 - AI is the field of building machines that can think and act rationally (guided by reasoning, logic, knowledge, and specific goals).
 
-- The term "agent" is used to describe an entity striving to achieve specific objectives. An agent can be a person, a machine, software, or a combination of these elements.
+- The term "agent" is used to describe an entity striving to achieve specific objectives. An agent can be a person, a machine, software, or a combination of these.
 
 - AI is getting so much attention now due to many reasons including the availability of large public datasets and the advancement of hardware technologies.

@@ -16,7 +16,7 @@ Your tasks for this week are:
 
 The coding assignment will involve "Building a shipping route planner using the A\* search algorithm."
 
-Upon completing this week, you will be able to:
+**Upon completing this week, you will be able to:**
 
 - Describe the field of AI and its fundamental concepts.
 - Define search problems and learn how to solve them with various search algorithms.

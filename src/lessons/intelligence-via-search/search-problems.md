@@ -1,4 +1,4 @@
-# Intelligence Via Search
+# Search Problem Modeling
 
 _Estimated time to finish: 60-90 minutes_
 
@@ -10,7 +10,9 @@ Would you be interested in learning how to program a computer to solve mazes, pu
 
 ## Search Problems
 
-A search problem is a specific type of computational problem that involves exploring a set of possible states or configurations (known as the state space) and finding a sequence of actions to achieve a goal within this state space. This is a broad definition, so let's clarify it with an example.
+A search problem is a specific type of computational problem that involves exploring a set of possible states or configurations (known as the state space) and finding a sequence of actions to achieve a goal within this state space.
+
+This is a broad definition, so let's clarify it with an example.
 
 Consider the scenario of a car moving from point A to point B, as illustrated below:
 
@@ -48,11 +50,11 @@ Let's consider another example. If we have a chessboard and eight queens, how ca
 
 ### More Examples
 
-There are many other examples of search problems. Retrieving relevant web pages or documents in response to a search query, finding the optimal path for data packets to travel from a source to a destination, solving some puzzles like sudoku or Rubik's cube, and determining the optimal route between two locations on a map are all examples of search problems.
+There are many other examples of search problems. Retrieving relevant web pages or documents in response to a search query, finding the optimal path for data packets to travel from a source to a destination, solving puzzles like Sudoku or Rubik's Cube, and determining the optimal route between two locations on a map are all examples of search problems.
 
 ## Understanding Our Objective
 
-One might question whether we are genuinely searching for something in this context. Well, you can think of the path itself as the object of our search. In the car example, our mission is to discover the path leading us to point B (by searching possible states). In the 8-queens problem, our mission is to find the configuration of the queens on the chessboard (by searching possible states starting with an initial one).
+One might question whether we are genuinely searching for something in this context. Well, you can think of the path itself as the object of our search. In the car example, our mission is to discover the path leading us to point B (**by searching possible states**). In the 8-queens problem, our mission is to find the configuration of the queens on the chessboard (by searching possible states starting with an initial one).
 
 ## Modeling Search Problems
 
@@ -88,7 +90,7 @@ The solution is a series of actions that lead from the initial state to the goal
 
 ## Modeling the Car's Journey
 
-Let's explore our previous example of a car journeying from point A to point B and frame it as a search problem.
+Let's explore our previous example of a car journeying from point A to point B and frame it as a search problem. Our focus on this lesson will be on modeling the problem's state space, initial state, goal state, goal test, actions, and transition model. The solution will be discussed in an upcoming lesson.
 
 ### State Space:
 
@@ -111,23 +113,7 @@ for i in range(GRID_SIZE):
 
 ```
 
-We can also consider the blocked cells as part of the state space. In our example, blocked cells are: `(2,3) (2,4) (3,2) (3,3) (3,4)`
-
-```python
-# 6 * 6 grid with blocked cells marked with 0
-# blocked cells are the cells that the car can't navigate to.
-# In our example, blocked cells are: (2,3) (2,4) (3,2) (3,3) (3,4)
-state_space = []
-blocked_cells = [(2, 3), (2, 4), (3, 2), (3, 3), (3, 4)]
-GRID_SIZE = 6
-for i in range(GRID_SIZE):
-    for j in range(GRID_SIZE):
-        if (i, j) in blocked_cells:
-            state_space.append(0)
-        else:
-            state_space.append(1)
-
-```
+**Important Note**: The state space in this example is small enough to be represented as a list. However, in most cases, the state space is too large to be represented as a list, as demonstrated here, and we don't need to store the entire state space upfront. More information on this will be provided later.
 
 ### Initial State:
 
@@ -162,17 +148,17 @@ actions = ["up", "down", "left", "right"]
 
 ### Transition Model (Successor Function)
 
-At a specific state (cell), the agent can take one of the possible actions: up, down, left, or right. For each specific action, the agent will end up in a new state (cell).
+At a specific state, the agent can take one of the possible actions: up, down, left, or right. For each specific action, the agent will end up in a new state.
 
-Take 10 minutes and try to write a transition model function for our can example. It's a function that takes a state and an action as input and returns a new state as output.
+### Try it!
 
-The state in our car example is the position of the car within the grid. The action is the direction the car is moving in. For example, if the car is at position `(1,1)` and the action is `up`, the new returned position will be `(2,1)`.
+Take 10 minutes and try to write a transition model function for our car example. It's a function that should take a state and an action as input and returns a new state as output. Recall that the state is the position of the car within the grid. The action is the direction the car is moving in. For example, if the car is at position `(1,1)` and the action is `up`, the new returned position will be `(2,1)`.
 
 <p align="center">
 <img src="../../images/car_grid.png" width = "400px"/>
 </p>
 
-Don't rush through it; take the 10 minutes and try. This is a crucial step in your learning process. If you can't do it, that's totally fine. You can check the solution below. But, please, try to do it first.
+Don't rush through it. This is a crucial step in your learning process. If you can't do it, you can check the solution below. But, please, try to do it first.
 
 <p align="center">
 <img src="../../images/10-min-timer.png" width = "300px"/>
@@ -186,11 +172,6 @@ Unfold the sample code below for an idea of how a transition model for this envi
 
 ```python
 def transition_model(state, action):
-    action in the given state. The action should be a string
-    taken from the list ['up', 'down', 'left', 'right'] and
-    state should be a tuple of the form (x, y) where x and y
-    are integers.
-    """
     x, y = state
     if action == 'up':
         return (x, y + 1)
@@ -211,21 +192,21 @@ def transition_model(state, action):
 
 Now, it's your turn to model a search problem.
 
-The 8-puzzle problem is a puzzle invented and popularized by Noyes Palmer Chapman in the 1870s. It is played on a 3-by-3 grid with 8 square blocks labeled 1 through 8 and a blank square. Your goal is to rearrange the blocks so that they are in order. You are permitted to slide blocks horizontally or vertically into the blank square.
+The 8-puzzle is invented and popularized by Noyes Palmer Chapman in the 1870s. It is played on a 3-by-3 grid with 8 square blocks labeled 1 through 8 and a blank square. Your goal is to rearrange the blocks so that they are in order. You are permitted to slide blocks horizontally or vertically into the blank square.
 
 <p align="center">
 <img src="../../images/sample-8-puzzle.png" width = "500px"/>
 </p>
 
-Take 10 minutes and try to model this problem. State the **state space, initial state, goal test, actions, and transition model.**
+Take 10-15 minutes and try to model this problem. State the **state space, initial state, goal test, actions, and transition model.**
 
-This is a crucial step in your learning process. Don't rush through it; take the 15 minutes and try. If you can't do it, that's totally fine. You can check the solution below. But, please, try to do it first.
+This is a crucial step in your learning process. Don't rush through it.
 
 <p align="center">
-<img src="../../images/10-min-timer.png" width = "300px"/>
+<img src="../../images/15-min-timer.png" width = "300px"/>
 </p>
 
-Unfold the solution below and match it with your solution.
+🧩 Unfold the solution below and match it with your solution.
 
 <Details>
 <Summary>
@@ -236,7 +217,7 @@ Solution
 
 **Initial State**: The initial state is the starting configuration of the puzzle, which may initially be a scrambled arrangement of the tiles. For example, `[[1, 3, 2], [6, 4, 7], [7, 8, None]]`.
 
-**Goal State**: The goal state is the desired configuration where the tiles are arranged in ascending order. For example, `[[1, 2, 3], [4, 5, 6], [7, 8, None]]`. The **Goal Test** is a function that checks if the current state is the goal state.
+**Goal State**: The goal state is the desired configuration where the tiles are arranged in ascending order `[[1, 2, 3], [4, 5, 6], [7, 8, None]]`. The **Goal Test** is a function that checks if the current state is the goal state.
 
 **Actions**: Moving the blank tile up, down, left, or right.
 

@@ -4,37 +4,21 @@ _Estimated Time: 90 - 180 minutes_
 
 <img src="../../images/lets-solve-maze.png" />
 
+Now that we have learned about search problems, It's time to learn how to solve them. In this lesson, we will learn about search algorithms and how to use them to solve search problems.
+
+## Search Algorithm
+
 <aside>
 
 A **search algorithm** takes a search problem as input and returns a solution or indicates that no solution exists.
 
 </aside>
 
-## Search Trees
-
-Before writing any code, it is useful to visualize our search space. Starting from an initial state, there are typically several actions that can be taken to transition to a new state. From that new state, there are again several actions that can be taken to move to yet another state, and so on. This process repeats until a goal state is reached. Here is a simple example:
-
-Suppose we have an 8-puzzle game, and we want to find a path from the initial state to the goal state. The initial state might be something like this:
+We know from the previous lesson that, in our search problems, we have a starting state and a goal state. We also have a set of actions that we can take to move from one state to another. Each action leads to a new state. If we try to visualize this, we can think of it as a tree where the starting state is the root the actions are the edges that connect the nodes.
 
 <p align="center">
-<img src="../../images/8-puzzle-1.png" />
+  <img src="../../images/actions-states.png" alt="Search Tree" width="600">
 </p>
-
-From this state, we can move the tiles 2,8,4, and 6. Each of these moves will result in a new state like this:
-
-<p align="center">
-<img src="../../images/8-puzzle-2.png" />
-</p>
-
-From each new state, we can again move different tiles. Each of these moves will result in a new state until we reach the goal state.
-
-<p align="center">
-<img src="../../images/8-puzzle-3.jpeg" />
-</p>
-
-As we see, this process can be visualized as a tree, where each node represents a state, and each edge represents an action. This is called a **search tree**. Each node in the serach tree corresponds to a state in the state space and each edge corresponds to an action. The root node of the tree represents the initial state.The complete tree can be very large to visualize here, but you get the idea.
-
-## Search Tree for Car Example
 
 In our car example, the starting state is the point `(1, 0)` on our modeled grid.
 
@@ -54,273 +38,29 @@ From the point `(2, 0)`, the car can move to point `(2, 1)` or `(3, 0)` . Simila
 <img src="../../images/car-state-3.png" />
 </p>
 
-## Modeling Search Trees in Code
+We refer to these trees as **search trees**. They represent our state space in which we search for a solution. Each node in the search tree corresponds to a state in the state space, and each edge corresponds to an action. The root node of the tree represents the initial state.
 
-There are different ways to model a search tree, which represents our state space, in code. A search tree, like any other tree, is a special type of graph. As you might recall from your DSA class, a graph is a non-linear data structure consisting of nodes connected by edges. Each node can have zero or more child nodes.
+This mental model of search trees will aid us in finding solutions to our search problems. We can employ various algorithms to navigate the search tree and discover a path from the initial state to the goal state.
 
-Below is a typical graph representation in Python:
+## Depth-First Search (DFS)
 
-```python
-class Vertex:
-    def __init__(self, name, **kwargs):
-        self.name = name
-
-    def __repr__(self):
-        return self.name
-
-    def __eq__(self, other):
-        return isinstance(other, Vertex) and self.name == other.name
-
-    def __hash__(self):
-        return hash(self.name)
-
-
-class Graph:
-    def __init__(self):
-        self.graph = {}  # dictionary of vertex name -> list of connected vertices
-
-    def add_vertex(self, vertex: Vertex):
-        self.graph.setdefault(vertex, [])
-
-    def add_edge(self, vertex1: Vertex, vertex2: Vertex):
-        if vertex1 not in self.graph:
-            self.add_vertex(vertex1)
-        if vertex2 not in self.graph:
-            self.add_vertex(vertex2)
-        if vertex2 not in self.graph[vertex1]:  # Prevent duplicate edges
-            self.graph[vertex1].append(vertex2)
-
-    def get_neighbors(self, vertex: Vertex):
-        return self.graph.get(vertex, None)
-
-    def __str__(self):
-        return "\n".join(f"{vertex.name}: {edges}" for vertex, edges in self.graph.items())
-
-```
-
-### Graphs Refresher
-
-If the above code doesn't look familiar to you, or you need a refresher on Graphs, check out this [lesson](../../refreshers/graphs.md).
-
-Here is a slightly modified version of the code above that will help us model our search tree better:
-
-```python
-class Node:
-
-  def __init__(self, state, parent=None, attributes=None):
-    self.state = state  # for each node to hold its state
-    self.parent = parent  # the node to keep track of its parent
-    self.attributes = attributes  # to hold any other attributes
-
-  def __repr__(self):
-    return str(self.state)
-
-  def __eq__(self, other):
-    return isinstance(other, Node) and self.state == other.state
-
-  def __hash__(self):
-    return hash(self.state)
-
-
-class Graph:
-
-  def __init__(self):
-    self.graph = {}  # dictionary of node -> list of connected vertices
-
-  def add_node(self, node: Node):
-    self.graph.setdefault(node, [])
-
-  def add_edge(self, node1: Node, node2: Node, weight=1):
-    if node1 not in self.graph:
-      self.add_node(node1)
-    if node2 not in self.graph:
-      self.add_node(node2)
-    if (node2, weight) not in self.graph[node1]:  # Prevent duplicate edges
-      self.graph[node1].append((node2, weight))
-
-  def get_neighbors(self, node: Node):
-    return self.graph.get(node, None)
-
-  def get_node(self, state):
-  # This function should return a node with a given state if it exists in the graph
-    for node in self.graph:
-        if node.state == state:
-            return node
-    return None
-
-
-  def __str__(self):
-    return "\n".join(
-        f"{node.state}: {', '.join([f'{v.state} ({w})' for v, w in edges])}"
-        for node, edges in self.graph.items())
-
-```
-
-Here are the changes I made to the code above:
-
-- Changed the name of the class `Vertex` to `Node` to better reflect what it represents and also to match the terminology we use in our lessons.
-- Changed the name of the attribute `name` to `state`.
-- Added a new attribute `parent` to keep track of the parent node.
-- Added a new attribute `attributes` to hold any other attributes we might need.
-
-## Coding the Car Example Search Tree
-
-```python
-def build_car_nav_graph(blocked_cells):
-  graph = Graph()
-  GRID_SIZE = 7
-  for i in range(GRID_SIZE):
-      for j in range(GRID_SIZE):
-          if (i, j) in blocked_cells:
-              continue
-
-          current_node = Node((i, j))
-          graph.add_node(current_node)
-
-          # Check and add right neighbor
-          if j + 1 < GRID_SIZE:
-              right_node = Node((i, j + 1))
-              if right_node.state not in blocked_cells:
-                  graph.add_edge(current_node, right_node)
-
-          # Check and add bottom neighbor
-          if i + 1 < GRID_SIZE:
-              bottom_node = Node((i + 1, j))
-              if bottom_node.state not in blocked_cells:
-                  graph.add_edge(current_node, bottom_node)
-
-          # Check and add left neighbor
-          if j - 1 >= 0:
-              left_node = Node((i, j - 1))
-              if left_node.state not in blocked_cells:
-                  graph.add_edge(current_node, left_node)
-
-          # Check and add top neighbor
-          if i - 1 >= 0:
-              top_node = Node((i - 1, j))
-              if top_node.state not in blocked_cells:
-                  graph.add_edge(current_node, top_node)
-
-  return graph
-
-
-
-blocked_cells = [(1,2), (1,3) ,(1,4) ,(1,5), (3,1), (3,2), (3,3), (3,4), (5,1), (5,2),(5,3),(3,6), (4,6), (5,6)]
-
-graph = build_car_nav_graph(blocked_cells)
-print(graph)
-```
-
-# Solving Search Problems
-
-You are also likely familiar with some algorithms that can be employed to traverse a tree. Two of the most common traversal algorithms are depth-first search (DFS) and breadth-first search (BFS). We can use these algorithms to traverse the search tree and find a path from the starting state to the goal state.
+You are likely familiar with the depth-first search (DFS) and breadth-first search (BFS) algorithms. Here we will employ these algorithms to traverse the search tree and find a path from the starting state to the goal state.
 
 For a refresher on these algorithms, you can refer to this lesson: [DFS and BFS](../../refreshers/search-algorithms.md).
 
-## Finding a Path Using DFS and BFS
+## Solving The Car Journey Example Using BFS
 
-Here is the code for the car example using DFS and BFS. A video explaining the code is also provided below.
+Here is the code for the car example using BFS.
 
 ```python
-def bfs(graph, start_node, end_node):
-  queue = deque([start_node])
-  visited = set()
-  visited_order = []  # List to store the order of visited nodes
-
-  while queue:
-      current_node = queue.popleft()
-
-      # Add the current node to the visited list before marking it as visited
-      visited_order.append(current_node)
-
-      if current_node == end_node:
-          return reconstruct_path(current_node, visited_order)  # Pass the visited_order list
-
-      visited.add(current_node)
-
-      for neighbor, _ in graph.get_neighbors(current_node):
-          if neighbor not in visited and neighbor not in queue:
-              neighbor.parent = current_node
-              queue.append(neighbor)
-
-  return None
-
-
-def reconstruct_path(end_node, visited_order):
-  path = []
-  while end_node:
-      path.append(end_node)
-      end_node = end_node.parent
-  path.reverse()
-
-  # Print the order of visited nodes
-  print("Visited Order:", " -> ".join(map(str, visited_order)))
-
-  return path
-
-start_node = Node((1, 0))
-end_node = Node((6, 6))
-path = bfs(graph, start_node, end_node)
-if path:
-    print("Path:", " -> ".join(map(str, path)))
-else:
-    print("No path found.")
 
 ```
 
-Notes on the code above:
+## Solving The Car Journey Example Using DFS
 
-- The visited_order list is used to store the order of visited nodes. This is useful for debugging and visualization purposes. It is not required for the algorithm to work.
-- The reconstruct_path function is used to reconstruct the path from the starting node to the goal node. It takes the goal node and moves backward to the starting node using the parent attribute of each node. It returns a list of nodes that represent the path from the starting node to the goal node.
-
-## DFS
+Here is the code for the car example using BFS.
 
 ```python
-
-def dfs(graph, start_node, end_node):
-  stack = [start_node]
-  visited = set()
-  visited_order = []  # to store the visited nodes in order
-
-  while stack:
-      current_node = stack.pop()
-      if current_node in visited:
-          continue
-
-      visited_order.append(current_node)  # append the node to the visited_order list
-
-      if current_node == end_node:
-          print("Visited Order:", " -> ".join(map(str, visited_order)))
-          return reconstruct_path(current_node, visited_order)
-
-      visited.add(current_node)
-      for neighbor, _ in graph.get_neighbors(current_node):
-          if neighbor not in visited:
-              neighbor.parent = current_node
-              stack.append(neighbor)
-
-  print("Visited Order:", " -> ".join(map(str, visited_order)))
-  return None
-
-
-def reconstruct_path(end_node, visited_order):
-  path = []
-  while end_node:
-      path.append(end_node)
-      end_node = end_node.parent
-  path.reverse()
-
-  # Print the order of visited nodes
-  print("Visited Order:", " -> ".join(map(str, visited_order)))
-
-  return path
-
-
-path = dfs(graph, graph.get_node((1, 0)), graph.get_node((6, 6)))
-if path:
-    print("Path:", " -> ".join(map(str, path)))
-else:
-    print("No path found.")
 
 ```
 
@@ -394,9 +134,7 @@ There are many other search algorithms ou there.Here is a list of some of them:
 - Hill Climbing Search
 - Beam Search
 
-And more. You can read more about them [here](https://www.geeksforgeeks.org/searching-algorithms/).
-
-In this week, besides BFS and DFS, we will also learn about A\* Search algorithm. Next week, we will learn more search algorithms suitable for solving more complex problems.
+In this week, besides BFS and DFS, we will also learn about Greedy Best-First Search and A\* Search algorithm. Next week, we will learn more search algorithms suitable for solving more complex problems.
 
 ## Self Assesment:
 
