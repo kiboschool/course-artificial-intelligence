@@ -11,8 +11,8 @@ You'll learn how to achieve intelligence by modeling and solving search problems
 
 Your tasks for this week are:
 
-- Quiz (10% of your grade).
-- Coding Assignment (5% of your grade).
+- Quiz (7.5% of your grade).
+- Coding Assignment (10% of your grade).
 
 The coding assignment will involve "Building a shipping route planner using the A\* search algorithm."
 

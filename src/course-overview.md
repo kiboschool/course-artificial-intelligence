@@ -1,21 +1,19 @@
 # Course Overview
 
-## Grading
+Welcome to CSE005 , Artificial Intelligence (AI). You are joining a global learning community dedicated to helping you learn and thrive in the AI era.
 
-- Homework 40%
-  - 4 Programming Assignments, 10% each
-- Exams 60%
-  - 6 Quizzes, 10% each
+📺 Watch this welcome video from your instructor.
 
-This page should include:
+<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+<iframe src="https://www.youtube.com/embed/" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
 
-- course number and credits
-- welcome video from the instructor
-- What you'll learn
-- meeting times
-- instructor information
-- Weekly topics
-- How the course works
-- Assessments info / grade weights
-- Tools
-- Other important course notes
+## Course Description
+
+## Course Objectives
+
+## Instructor
+
+## Live Class Time
+
+## Office Hours

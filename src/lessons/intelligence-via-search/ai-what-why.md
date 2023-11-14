@@ -88,7 +88,7 @@ Advancements in hardware technology, especially the development of high-performa
 
 Although GPUs and TPUs can be costly to purchase and operate, they are now widely accessible in the cloud, making them affordable for a broader audience. This accessibility has facilitated AI researchers and practitioners in experimenting with more intricate models and larger datasets without requiring substantial investments in expensive hardware.
 
-Here a screenshot of the [Google Cloud Platform](https://cloud.google.com/) which provides access to GPUs and TPUs:
+Here is a screenshot of the [Google Cloud Platform](https://cloud.google.com/) which provides access to GPUs and TPUs:
 
 <p align="center">
   <img src="../../images/gcp-gpu.png"  />

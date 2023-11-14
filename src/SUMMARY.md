@@ -16,7 +16,7 @@
   - [Search Algorithms](lessons/intelligence-via-search/search-algorithms.md)
   - [Practice Problems](lessons/intelligence-via-search/practice-problems.md)
   - [Informed Search](lessons/intelligence-via-search/informed-search.md)
-
+  - [A\* Search](lessons/intelligence-via-search/astar-search.md)
   - [Assignment](lessons/intelligence-via-search/assignment.md)
 
 <!-- - [Search Problem Formulation](lessons/intelligence-via-search/search-problem-formulation.md)

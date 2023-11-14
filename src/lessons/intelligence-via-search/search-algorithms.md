@@ -42,7 +42,7 @@ We refer to these trees as **search trees**. They represent our state space in w
 
 This mental model of search trees will aid us in finding solutions to our search problems. We can employ various algorithms to navigate the search tree and discover a path from the initial state to the goal state.
 
-## Depth-First Search (DFS)
+## Breadth-First Search (BFS) and Depth-First Search (DFS)
 
 You are likely familiar with the depth-first search (DFS) and breadth-first search (BFS) algorithms. Here we will employ these algorithms to traverse the search tree and find a path from the starting state to the goal state.
 
@@ -50,17 +50,170 @@ For a refresher on these algorithms, you can refer to this lesson: [DFS and BFS]
 
 ## Solving The Car Journey Example Using BFS
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+<iframe src="https://www.youtube.com/embed/" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+
 Here is the code for the car example using BFS.
 
 ```python
+from collections import deque
 
+## State Space
+GRID_SIZE = 7
+initial_state = (1, 0)
+goal_state = (6, 6)
+actions = ["up", "down", "left", "right"]
+
+
+def build_state_space():
+  state_space = [[1 for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
+  blocked_cells = [(2, 3), (2, 4), (3, 2), (3, 3), (3, 4)]
+  for cell in blocked_cells:
+    x, y = cell
+    state_space[y][x] = 0  # Mark the cell as blocked
+  return state_space
+
+
+state_space = build_state_space()
+
+
+def is_valid_state(state):
+  x, y = state
+  # Check if within grid bounds and the cell is not blocked
+  return not (0 <= x < GRID_SIZE and 0 <= y < GRID_SIZE
+              and state_space[y][x] == 1)
+
+
+def transition_model(state, action):
+  x, y = state  #unwrap the state tuple
+
+  if action == 'up' and y > 0:
+    return (x, y - 1)
+  elif action == 'down' and y < GRID_SIZE - 1:
+    return (x, y + 1)
+  elif action == 'right' and x < GRID_SIZE - 1:
+    return (x + 1, y)
+  elif action == 'left' and x > 0:
+    return (x - 1, y)
+  else:
+    return None
+
+
+def goal_test(state):
+  return state == goal_state
+
+
+def solve_bfs():
+  queue = deque([(initial_state, [])])
+  visited = set()
+
+  while queue:
+    state, path = queue.popleft()
+    if goal_test(state):
+      #print("Visited", visited)
+      return path + [state]
+
+    if state not in visited:
+      visited.add(state)
+      for action in actions:
+        next_state = transition_model(state, action)
+        if next_state and next_state not in visited and not is_valid_state(
+            next_state):
+          queue.append((next_state, path + [state]))
+
+  #print("Visited", visited)
+  return None
+
+
+path_to_goal_bfs = solve_bfs()
+
+print("BFS path to goal:"
+      if path_to_goal_bfs else "No path found to the goal with BFS.")
+print(path_to_goal_bfs)
 ```
 
 ## Solving The Car Journey Example Using DFS
 
-Here is the code for the car example using BFS.
+<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+<iframe src="https://www.youtube.com/embed/" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+
+Here is the code for the car example using DFS.
 
 ```python
+## State Space
+GRID_SIZE = 7
+initial_state = (1, 0)
+goal_state = (6, 6)
+actions = ["up", "down", "left", "right"]
+
+
+def build_state_space():
+  state_space = [[1 for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
+  blocked_cells = [(2, 3), (2, 4), (3, 2), (3, 3), (3, 4)]
+  for cell in blocked_cells:
+    x, y = cell
+    state_space[y][x] = 0  # Mark the cell as blocked
+  return state_space
+
+
+state_space = build_state_space()
+
+
+def is_valid_state(state):
+  x, y = state
+  # Check if within grid bounds and the cell is not blocked
+  return not (0 <= x < GRID_SIZE and 0 <= y < GRID_SIZE
+              and state_space[y][x] == 1)
+
+
+def transition_model(state, action):
+  x, y = state  #unwrap the state tuple
+
+  if action == 'up' and y > 0:
+    return (x, y - 1)
+  elif action == 'down' and y < GRID_SIZE - 1:
+    return (x, y + 1)
+  elif action == 'right' and x < GRID_SIZE - 1:
+    return (x + 1, y)
+  elif action == 'left' and x > 0:
+    return (x - 1, y)
+  else:
+    return None
+
+
+def goal_test(state):
+  return state == goal_state
+
+
+def solve_dfs():
+  stack = [(initial_state, [])]
+  visited = set()
+
+  while stack:
+    state, path = stack.pop()
+    if goal_test(state):
+      #print(visited)
+      return path + [state]
+
+    if state not in visited:
+      visited.add(state)
+      for action in actions:
+        next_state = transition_model(state, action)
+        if next_state and next_state not in visited and not is_valid_state(
+            next_state):
+          stack.append((next_state, path + [state]))
+
+  #print(visited)
+  return None
+
+
+path_to_goal_dfs = solve_dfs()
+
+print("DFS path to goal:"
+      if path_to_goal_dfs else "No path found to the goal with DFS.")
+print(path_to_goal_dfs)
 
 ```
 

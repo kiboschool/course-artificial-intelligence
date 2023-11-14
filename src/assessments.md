@@ -1,8 +1,13 @@
 # Assessments & Grading
 
-This page should provide more details about the course assessments.
+- Homework 40%
 
-- schedule and due dates
-- submission instructions
-- late policy
-- academic integrity note
+  - Weekly/Bi-Weekly Programming Assignment
+
+- Quizzes 30%
+
+  - 4 Quizzes, 7.5% each
+  - Timed Quizzes on Gradescope
+
+- Final Exam 30%
+  - Online - Live Class Style
