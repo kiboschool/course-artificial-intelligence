@@ -342,7 +342,7 @@ if __name__ == "__main__":
 
 ```
 
-## 🛑 Bad News!
+## 🛑 Critical Warning: Diving into Complexity
 
 I've included a straightforward and solvable configuration in the code above for us to test. However, numerous other configurations will take an extensive amount of time to solve. In fact, your computer's memory will mostly run out, and the program will crash before completing the solution. Additionally, there are configurations that are unsolvable. You can find solvable configurations on online games, such as [this one](https://15puzzle.netlify.app/).
 
