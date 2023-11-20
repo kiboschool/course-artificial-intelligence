@@ -117,7 +117,7 @@ for i in range(GRID_SIZE):
 
 ### Initial State:
 
-After modeling the state space, it is clear now that our initial state is the position of the car at point A, which is `(1,0)`. We can represent the initial state as a tuple in Python.
+After modeling the state space, it is clear now that our initial state is the position of the car at point A, which is (1, 0). We can represent the initial state as a tuple in Python.
 
 ```python
 initial_state = (1, 0)
@@ -125,7 +125,7 @@ initial_state = (1, 0)
 
 ### Goal State and Goal test:
 
-The goal state is the position of the car at point B, which is `(6,6)`. Similarly, We can represent the goal state as a tuple in Python.
+The goal state is the position of the car at point B, which is (6, 6). Similarly, We can represent the goal state as a tuple in Python.
 
 ```python
 goal_state = (6, 6)
@@ -152,7 +152,7 @@ At a specific state, the agent can take one of the possible actions: up, down, l
 
 ### Try it!
 
-Take 10 minutes and try to write a transition model function for our car example. It's a function that should take a state and an action as input and returns a new state as output. Recall that the state is the position of the car within the grid. The action is the direction the car is moving in. For example, if the car is at position `(1,1)` and the action is `up`, the new returned position will be `(2,1)`.
+Take 10 minutes and try to write a transition model function for our car example. It's a function that should take a state and an action as input and returns a new state as output. Recall that the state is the position of the car within the grid. The action is the direction the car is moving in. For example, if the car is at position (1, 1) and the action is up, the newly returned position will be (2, 1).
 
 <p align="center">
 <img src="../../images/car_grid.png" width = "400px"/>
@@ -239,7 +239,7 @@ You have just completed modeling your first search problem!
 - What are the components of a search problem?
 - Give a complete problem formulation for each of the following problems. Choose a formulation that is precise enough to be implemented.
 
-  1. There is an n×n grid of squares, each square initially being either unpainted floor or a bottomless pit. You start standing on an unpainted floor square, and can either paint the square under you or move onto an adjacent unpainted floor square. You want the whole floor painted.
+  1. There is an n×n grid of squares, each square initially being either unpainted floor or a bottomless pit. You start standing on an unpainted floor square and can either paint the square under you or move onto an adjacent unpainted floor square. You want the whole floor painted.
 
   2. Your goal is to navigate a robot out of a maze. The robot starts in the center of the maze facing north. You can turn the robot to face north, east, south, or west. You can direct the robot to move forward a certain distance, although it will stop before hitting a wall.
 

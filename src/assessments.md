@@ -2,7 +2,7 @@
 
 - Homework 40%
 
-  - Weekly/Bi-Weekly Programming Assignment
+  - Programming Assignments
 
 - Quizzes 30%
 

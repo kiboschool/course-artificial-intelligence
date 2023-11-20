@@ -13,7 +13,7 @@ If a robot navigates city streets without colliding with anything, would you con
 <aside>
 As humans, we hold different perceptions of intelligence, employing distinct criteria for evaluating machines versus humans.
 </aside>
-Some have been seen intelligence as the ability to use language, form abstractions and concepts, solve problems, and acquire knowledge.
+Some have seen intelligence as the ability to use language, form abstractions and concepts, solve problems, and acquire knowledge.
 
 ## The Turing Test
 
@@ -25,7 +25,7 @@ In the 1950s, Alan Turing, a British computer scientist, proposed a test to dete
 <iframe src="https://www.youtube.com/embed/3wLqsRLvV-c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
-## Deinfing Intelligence
+## Defining Intelligence
 
 An established and common definition of intelligence is **the ability to make the correct decisions.** But what does it mean to make the correct or right decision? To answer this question, we need to delve into the concept of rationality.
 
@@ -39,7 +39,7 @@ From a scientific standpoint, rationality is the quality of being grounded in re
 
 **Example of rationality:**
 
-Suppose we have an agent (a software, a person or a machine) playing chess. In this context, making the move expected to maximize the chances of winning the game is the right decision. This exemplifies rationality because the agent is taking a decision based on reasoning and logic and towards a specifc goal which is winning the game.
+Suppose we have an agent (a software, a person or a machine) playing chess. In this context, making the move expected to maximize the chances of winning the game is the right decision. This exemplifies rationality because the agent is taking a decision based on reasoning and logic and towards a specific goal which is winning the game.
 
 **Another example of rationality**
 
@@ -47,7 +47,7 @@ Imagine an agent operating a vehicle. Here, making choices aimed at maximizing t
 
 <aside>
 
-**Intelligence** is the ability to make rational decisions (decision grounded in reason, logic, and knolwege).
+**Intelligence** is the ability to make rational decisions (decision grounded in reason, logic, and knowledge).
 
 </aside>
 
@@ -94,7 +94,7 @@ Here is a screenshot of the [Google Cloud Platform](https://cloud.google.com/) w
   <img src="../../images/gcp-gpu.png"  />
 </p>
 
-## Self Assesment:
+## Self Assessment":
 
 - Explain AI to a 10-year-old.
 - List two reasons for the current surge of interest in AI.

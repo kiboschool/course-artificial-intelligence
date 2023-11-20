@@ -1,11 +1,11 @@
 # Intelligence via Search I
 
 <p align="center">
-  <img src="../../images/path-finding-img.png" alt="Path Finding" />
+  <img src="../../images/path-finding-img.png" alt="pathfinding" />
 </p>
 👋 Welcome to the first week of the course. In this week, you will be introduced to the field of AI and the fundamental concepts necessary for building AI systems.
 
-You'll learn how to achieve intelligence by modeling and solving search problems. We will learn how to solve problems like maze navigation and path finding using different search algorithms like depth-first search, breadth-first search, and A\* search.
+You'll learn how to achieve intelligence by modeling and solving search problems. We will learn how to solve problems like maze navigation and pathfinding using different search algorithms like depth-first search, breadth-first search, and A\* search.
 
 ## This Week's Assessments:
 
