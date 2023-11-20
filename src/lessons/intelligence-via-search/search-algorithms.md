@@ -59,30 +59,16 @@ Here is the code for the car example using BFS.
 ```python
 from collections import deque
 
-## State Space
 GRID_SIZE = 7
-initial_state = (1, 0)
-goal_state = (6, 6)
+initial_state = (1, 0)  # index on the grid for the car's starting position
+goal_state = (6, 6)  # index on the grid for the car's destination.
 actions = ["up", "down", "left", "right"]
-
-
-def build_state_space():
-  state_space = [[1 for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
-  blocked_cells = [(2, 3), (2, 4), (3, 2), (3, 3), (3, 4)]
-  for cell in blocked_cells:
-    x, y = cell
-    state_space[y][x] = 0  # Mark the cell as blocked
-  return state_space
-
-
-state_space = build_state_space()
+blocked_cells = [(2, 3), (2, 4), (3, 2), (3, 3), (3, 4)]
 
 
 def is_valid_state(state):
-  x, y = state
   # Check if within grid bounds and the cell is not blocked
-  return not (0 <= x < GRID_SIZE and 0 <= y < GRID_SIZE
-              and state_space[y][x] == 1)
+  return state not in blocked_cells
 
 
 def transition_model(state, action):
@@ -105,8 +91,11 @@ def goal_test(state):
 
 
 def solve_bfs():
-  queue = deque([(initial_state, [])])
-  visited = set()
+  queue = deque([
+      (initial_state, [])
+  ])  # Using deque, which is an efficient implementation of a queue in Python.
+
+  visited = set()  # keep track of the visited nodes to avoid revisiting
 
   while queue:
     state, path = queue.popleft()
@@ -118,7 +107,7 @@ def solve_bfs():
       visited.add(state)
       for action in actions:
         next_state = transition_model(state, action)
-        if next_state and next_state not in visited and not is_valid_state(
+        if next_state and next_state not in visited and is_valid_state(
             next_state):
           queue.append((next_state, path + [state]))
 
@@ -131,6 +120,14 @@ path_to_goal_bfs = solve_bfs()
 print("BFS path to goal:"
       if path_to_goal_bfs else "No path found to the goal with BFS.")
 print(path_to_goal_bfs)
+
+```
+
+Output of the above code:
+
+```bash
+BFS path to goal:
+[(1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 6), (3, 6), (4, 6), (5, 6), (6, 6)]
 ```
 
 ## Solving The Car Journey Example Using DFS
@@ -143,29 +140,18 @@ Here is the code for the car example using DFS.
 
 ```python
 ## State Space
+from collections import deque
+
 GRID_SIZE = 7
-initial_state = (1, 0)
-goal_state = (6, 6)
+initial_state = (1, 0)  # index on the grid for the car's starting position
+goal_state = (6, 6)  # index on the grid for the car's destination.
 actions = ["up", "down", "left", "right"]
-
-
-def build_state_space():
-  state_space = [[1 for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
-  blocked_cells = [(2, 3), (2, 4), (3, 2), (3, 3), (3, 4)]
-  for cell in blocked_cells:
-    x, y = cell
-    state_space[y][x] = 0  # Mark the cell as blocked
-  return state_space
-
-
-state_space = build_state_space()
+blocked_cells = [(2, 3), (2, 4), (3, 2), (3, 3), (3, 4)]
 
 
 def is_valid_state(state):
-  x, y = state
   # Check if within grid bounds and the cell is not blocked
-  return not (0 <= x < GRID_SIZE and 0 <= y < GRID_SIZE
-              and state_space[y][x] == 1)
+  return state not in blocked_cells
 
 
 def transition_model(state, action):
@@ -187,34 +173,45 @@ def goal_test(state):
   return state == goal_state
 
 
-def solve_dfs():
-  stack = [(initial_state, [])]
-  visited = set()
+def solve_bfs():
+  queue = deque([
+      (initial_state, [])
+  ])  # Using deque, which is an efficient implementation of a queue in Python.
 
-  while stack:
-    state, path = stack.pop()
+  visited = set()  # keep track of the visited nodes to avoid revisiting
+
+  while queue:
+    state, path = queue.popleft()
     if goal_test(state):
-      #print(visited)
+      #print("Visited", visited)
       return path + [state]
 
     if state not in visited:
       visited.add(state)
+
       for action in actions:
         next_state = transition_model(state, action)
-        if next_state and next_state not in visited and not is_valid_state(
+        if next_state and next_state not in visited and is_valid_state(
             next_state):
-          stack.append((next_state, path + [state]))
+          queue.append((next_state, path + [state]))
 
-  #print(visited)
+  #print("Visited", visited)
   return None
 
 
-path_to_goal_dfs = solve_dfs()
+path_to_goal_bfs = solve_bfs()
 
-print("DFS path to goal:"
-      if path_to_goal_dfs else "No path found to the goal with DFS.")
-print(path_to_goal_dfs)
+print("BFS path to goal:"
+      if path_to_goal_bfs else "No path found to the goal with BFS.")
+print(path_to_goal_bfs)
 
+```
+
+The output of the above code:
+
+```bash
+DFS path to goal:
+[(1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0), (6, 1), (5, 1), (4, 1), (3, 1), (2, 1), (1, 1), (0, 1), (0, 2), (1, 2), (1, 3), (0, 3), (0, 4), (1, 4), (1, 5), (2, 5), (3, 5), (4, 5), (5, 5), (6, 5), (6, 6)]
 ```
 
 ## Understanding Our Objective
@@ -236,7 +233,7 @@ If the algorithm is guaranteed to find a solution if one exists, then we say tha
 
 ### Optimality
 
-If the algorithm is guaranteed to find the optimal solution (lowest path code), then we say that the algorithm is optimal. **BFS is optimal, but DFS is not**.
+If the algorithm is guaranteed to find the optimal solution, then we say that the algorithm is optimal. In our problem definition, we defined the cost of each action to be the same and our graph is not weighted. In this case, **BFS is optimal, but DFS is not**. In other scenarios, BFS may not be optimal.
 
 ### Time Complexity
 
@@ -246,9 +243,7 @@ The time complexity of a Breadth-First Search (BFS) algorithm is typically **O(V
 ### Space Complexity
 
 Space complexity is the maximum number of nodes that are stored in memory during the search. We use big-O notation to express the space complexity as well.
-The space complexity of a Breadth-First Search (BFS) algorithm is typically O(V), where V is the number of vertices in the graph being traversed.In the case of an iterative DFS using a stack on a tree, the space complexity is O(h) where "h" is the height of the tree.
-
-A simple indicator for us to use could be the number of nodes expanded during the search(how many nodes we visit during the search until we reach the goal).
+The space complexity of a Breadth-First Search (BFS) algorithm is typically O(V), where V is the number of vertices in the graph being traversed. In the case of an iterative DFS using a stack on a tree, the space complexity is O(h) where "h" is the height of the tree.
 
 ## Which one is better?
 
@@ -259,15 +254,12 @@ Here are some considerations for when to use each search algorithm:
 Use **BFS** when:
 
 - You want to find the shortest path or the minimum number of steps to reach a goal. BFS explores nodes level by level, so it is guaranteed to find the shortest path in an unweighted graph.
-- You need to visit all nodes at a given level before moving on to the next level.
 - The graph has a tree structure, and you want to visit all nodes at the same depth before moving to the next level.
-- You want to avoid deep recursion, which can be an issue in DFS on very deep graphs.
+- You want to avoid deep recursion, which can be an issue in very deep graphs.
 
 Use **DFS** when:
 
-- You are interested in exploring as deeply as possible along a branch before backtracking. DFS is well-suited for tasks like finding paths or cycles.
-
-- You have limited memory resources because, in general, DFS can use less memory (stack space) than BFS.
+- You are interested in exploring as deeply as possible along a branch before backtracking.
 
 - You are working with a tree or a graph with a limited depth, and you prefer a simple recursive implementation.
 
@@ -275,7 +267,7 @@ Use **DFS** when:
 
 ## More Search Algorithms
 
-There are many other search algorithms ou there.Here is a list of some of them:
+There are many other search algorithms out there.Here is a list of some of them:
 
 - Greedy Best-First Search
 - A\* Search
@@ -294,4 +286,5 @@ In this week, besides BFS and DFS, we will also learn about Greedy Best-First Se
 - Pick a search problem and write a complete solution for it using BFS and DFS. You can use the code above as a starting point. Example problems include:
   - 8-puzzle
   - 8-queens
-  - Maze
+  - 2D maze represented by a grid
+  - Word Ladder
