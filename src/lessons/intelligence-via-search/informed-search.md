@@ -51,7 +51,7 @@ import heapq
 N = 4
 
 
-def tiles_out_of_place(board, goal_board):
+def count_misplaced_tiles(board, goal_board):
   out_of_place_tiles_count = 0
   for i in range(N * N):
     if board[i] != goal_board[i]:
@@ -112,7 +112,7 @@ def greedy_best_first_search(initial_board, goal_board):
     for move in ['up', 'down', 'left', 'right']:
       next_board = make_move(board, move)
       if next_board and tuple(next_board) not in visited:
-        heuristic = tiles_out_of_place(next_board, goal_board)
+        heuristic = count_misplaced_tiles(next_board, goal_board)
         if heuristic is not None:
           heapq.heappush(priority_queue,
                          (heuristic, (next_board, path + [move])))
@@ -145,13 +145,13 @@ if __name__ == "__main__":
   #initial_board = [4,0,8,1,14,7,10,13,3,6,5,2,11,15,12,9]
   initial_board = [2,11,1,9,15,5,6,13,8,7,12,4,10,0,3,14]
 
-  bfs_solution = greedy_best_first_search(initial_board, goal_board)
+  gbfs_solution = greedy_best_first_search(initial_board, goal_board)
 
-  print("\nBFS Solution:")
-  if bfs_solution:
+  print("\nGreedy BFS Solution:")
+  if gbfs_solution:
     print_solution(initial_board, bfs_solution)
   else:
-    print("No solution found with BFS")
+    print("No solution found with Greedy BFS")
 
 
 ```

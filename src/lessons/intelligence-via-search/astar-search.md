@@ -10,86 +10,116 @@ The A\* search algorithm is an informed search algorithm. Beside using a heurist
 
 ## Solving the 15-Puzzle Problem with A\* Search
 
+To solve the 15-Puzzle problem with the A\* search algorithm, we need to modify our algorithm to use both the cost of the path and the heuristic function to guide its search. The additional component we need will be the calculation of `g_value` which is the cost of the path from the start state to the current state.
+
+```python
+def a_star_search(initial_board, goal_board):
+  visited = set()
+  priority_queue = []
+
+  # Initial state with a cost of 0
+  heapq.heappush(priority_queue, (0, 0, (initial_board, [])))
+
+  while priority_queue:
+    current_cost, _, (board, path) = heapq.heappop(priority_queue)
+
+    if board == goal_board:
+      return path
+
+    visited.add(tuple(board))
+
+    for move in ['up', 'down', 'left', 'right']:
+      next_board = make_move(board, move)
+      if next_board and tuple(next_board) not in visited:
+        heuristic = manhattan_distance(next_board, goal_board)
+        g_value = current_cost + 1  # Increment the cost
+        if heuristic is not None:
+          total_cost = heuristic + g_value
+          heapq.heappush(priority_queue,
+                         (total_cost, g_value, (next_board, path + [move])))
+
+  return None
+```
+
+Here is the full code for the 15-Puzzle problem with A\* search:
+
 ```python
 from collections import deque
-from heapq import heappush, heappop
-
+import heapq
 # Board dimension
 N = 4
 
-# Board move directions
-MOVES = {'up': -N, 'down': N, 'left': -1, 'right': 1}
 
-
-# Manhattan Distance Heuristic
-def manhattan_distance(board, goal_board):
-  distance = 0
+def count_misplaced_tiles(board, goal_board):
+  out_of_place_tiles_count = 0
   for i in range(N * N):
-    if board[i] is not None:
-      goal_index = goal_board.index(board[i])
-      current_row, current_col = divmod(i, N)
-      goal_row, goal_col = divmod(goal_index, N)
-      distance += abs(current_row - goal_row) + abs(current_col - goal_col)
-  return distance
+    if board[i] != goal_board[i]:
+      out_of_place_tiles_count += 1
+  return out_of_place_tiles_count
 
 
 def is_valid_move(pos, move):
-  if move == 'up' and pos < N:
+  row, col = divmod(pos, N)
+  if move == 'up' and row == 0:
     return False
-  if move == 'down' and pos >= N * (N - 1):
+  if move == 'down' and row == N - 1:
     return False
-  if move == 'left' and pos % N == 0:
+  if move == 'left' and col == 0:
     return False
-  if move == 'right' and (pos + 1) % N == 0:
+  if move == 'right' and col == N - 1:
     return False
   return True
 
 
 def make_move(board, move):
-  empty_pos = board.index(None)
-  if is_valid_move(empty_pos, move):
-    new_board = board[:]
-    target_pos = empty_pos + MOVES[move]
-    new_board[empty_pos], new_board[target_pos] = new_board[
-        target_pos], new_board[empty_pos]
-    return new_board
-  return None
+  empty_pos = board.index(0)
+
+  if not is_valid_move(empty_pos, move):
+    return None
+
+  row, col = divmod(empty_pos, N)
+  if move == 'up':
+    target_pos = (row - 1) * N + col
+  elif move == 'down':
+    target_pos = (row + 1) * N + col
+  elif move == 'left':
+    target_pos = row * N + (col - 1)
+  elif move == 'right':
+    target_pos = row * N + (col + 1)
+
+  new_board = board[:]
+  new_board[empty_pos], new_board[target_pos] = new_board[
+      target_pos], new_board[empty_pos]
+
+  return new_board
 
 
 def a_star_search(initial_board, goal_board):
-    visited = set()
-    queue = []
-    board_states = {}
-    paths = {}
-    path_costs = {}
+  visited = set()
+  priority_queue = []
 
-    def add_to_queue(board, path, cost):
-        id = len(board_states)
-        board_states[id] = board
-        paths[id] = path
-        path_costs[id] = cost
-        total_cost = cost + manhattan_distance(board, goal_board)
-        heappush(queue, (total_cost, id))
+  # Initial state with a cost of 0
+  heapq.heappush(priority_queue, (0, 0, (initial_board, [])))
 
-    add_to_queue(initial_board, [], 0)
+  while priority_queue:
+    current_cost, _, (board, path) = heapq.heappop(priority_queue)
 
-    while queue:
-        _, id = heappop(queue)
-        board = board_states[id]
-        path = paths[id]
-        cost = path_costs[id]
+    if board == goal_board:
+      return path
 
-        if board == goal_board:
-            return path
+    visited.add(tuple(board))
 
-        visited.add(tuple(board))
+    for move in ['up', 'down', 'left', 'right']:
+      next_board = make_move(board, move)
+      if next_board and tuple(next_board) not in visited:
+        heuristic = manhattan_distance(next_board, goal_board)
+        g_value = current_cost + 1  # Increment the cost
+        if heuristic is not None:
+          total_cost = heuristic + g_value
+          heapq.heappush(priority_queue,
+                         (total_cost, g_value, (next_board, path + [move])))
 
-        for move in MOVES.keys():
-            next_board = make_move(board, move)
-            if next_board and tuple(next_board) not in visited:
-                add_to_queue(next_board, path + [move], cost + 1)
-
-    return None
+  return None
 
 
 def print_solution(board, solution):
@@ -99,6 +129,8 @@ def print_solution(board, solution):
     board = make_move(board, move)
     print(f"\nMove {move}:")
     print_board(board)
+  print(len(solution))
+  #input()
 
 
 def print_board(board):
@@ -108,17 +140,22 @@ def print_board(board):
 
 
 if __name__ == "__main__":
+  # Adjust for a 4x4 board
+  goal_board = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0]
+  # Provide a valid initial configuration for a 4x4 board
+  #initial_board = [7, 9, 4, 15, 3, 0, 11, 6, 13, 8, 14, 5, 1, 12, 2, 10]
+  #initial_board = [14, 12, 7, 15, 4, 13, 1, 2, 10, 9, 3, 6, 11, 8, 0, 5]
+  #initial_board = [4,0,8,1,14,7,10,13,3,6,5,2,11,15,12,9]
+  #initial_board = [2, 11, 1, 9, 15, 5, 6, 13, 8, 7, 12, 4, 10, 0, 3, 14]
+  initial_board = [0, 5, 6, 3, 9, 1, 2, 4, 10, 7, 11, 15, 13, 14, 12, 8]
 
-  goal_board = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, None]
-  initial_board = [2, 4, 3, 1, 9, 10, 11, 12, 15, 14, 13, None, 6, 7, 5, 8]
+  astar_solution = a_star_search(initial_board, goal_board)
 
-  solution = a_star_search(initial_board, goal_board)
-
-  print("\nGreedy Best-First Search Solution:")
-  if solution:
-    print_solution(initial_board, solution)
+  print("\nA* Solution:")
+  if bfs_solution:
+    print_solution(initial_board, bfs_solution)
   else:
-    print("No solution found with Greedy Best-First Search")
+    print("No solution found with A*")
 
 ```
 

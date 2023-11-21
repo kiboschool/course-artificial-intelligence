@@ -1,3 +1,9 @@
+Possible Additions:
+- provide pesudo code for search problems 
+- use the Node data structure instead of the path and tuple
+
+
+
 https://github.com/Leonardpepa/Pathfinding-Visualizer
 
 A*

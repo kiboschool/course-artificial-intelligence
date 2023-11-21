@@ -214,6 +214,37 @@ DFS path to goal:
 [(1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0), (6, 1), (5, 1), (4, 1), (3, 1), (2, 1), (1, 1), (0, 1), (0, 2), (1, 2), (1, 3), (0, 3), (0, 4), (1, 4), (1, 5), (2, 5), (3, 5), (4, 5), (5, 5), (6, 5), (6, 6)]
 ```
 
+## Space Optimization
+
+In the code above, we stored the complete path to each state along with the state in the queue. This can consume a significant amount of memory, especially in large search spaces. Instead, we can store only the parent state of each state in the queue and we can construct the path by going backward using this parent refernces.
+
+```python
+  queue = deque([(initial_state, None)])  # Store (state, parent) pairs
+  ....
+  queue.append((next_state, current_state)) #current_state is the parent of next_state
+```
+
+## Using a Node data structure
+
+In our code above, we used a tuple to represent the state and the path to it.
+
+```python
+  queue = deque([
+      (initial_state, [])
+  ])
+```
+
+Instead, for better code readability and organization, we can use a Node data structure to represent a state. The Node data structure is also useful when we want to store additional information about a state such as the path cost.
+
+A Node data structure can be defined as follows:
+
+```python
+class Node:
+  def __init__(self, state, path):
+    self.state = state
+    self.path = path # decide to use the compelte path or only a parent reference
+```
+
 ## Understanding Our Objective
 
 In our previous examples, our primary objective was to find **a path** from the starting state to the goal state. We used BFS and DFS to solve the problem. However, it's important to note that not all paths are equal; some paths are better than others. Later this week, we will explore how to find the optimal path from the starting state to the goal state.
@@ -287,4 +318,4 @@ In this week, besides BFS and DFS, we will also learn about Greedy Best-First Se
   - 8-puzzle
   - 8-queens
   - 2D maze represented by a grid
-  - Word Ladder
+  - [Word Ladder](https://leetcode.com/problems/word-ladder/)
