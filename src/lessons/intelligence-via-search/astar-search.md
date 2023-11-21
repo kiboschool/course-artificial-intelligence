@@ -216,37 +216,27 @@ Move down:
 Comparing that with the number of steps taken by the greedy best-first search algorithm, we can see that the A\* search algorithm found the optimal solution with 24 steps, while the greedy best-first search algorithm found a solution with 187 steps.
 
 ## Variants of A\* Search
+
 A* (A-star) search is a widely used algorithm for finding the shortest path in a graph or solving optimization problems. It uses a heuristic to guide the search, making it more efficient than traditional uninformed search algorithms. There are different variations of A* search, each tailored to specific types of problems or computational constraints. Here are some notable variations:
 
-### Basic A Search:*
+### Basic A Search:\*
 
 The standard A* algorithm uses a combination of the cost to reach a node (g) and a heuristic estimate of the cost to reach the goal from that node (h). The evaluation function is f(n) = g(n) + h(n). A* expands nodes with the lowest f(n) value.
-Weighted A Search:*
 
-Weighted A* introduces a weight factor to the heuristic function, influencing the balance between the cost to reach the node and the estimated cost to the goal. This can be useful for adjusting the algorithm's behavior, favoring either optimality or speed.
-Bidirectional A Search:*
+### Weighted A Search:\*
 
-In bidirectional A* search, the search is performed simultaneously from both the start and goal states. The algorithm continues until the two searches meet in the middle. This approach can be more efficient for certain types of graphs, especially when the branching factor is high.
-Incremental A Search:*
+Weighted A\* introduces a weight factor to the heuristic function, influencing the balance between the cost to reach the node and the estimated cost to the goal. This can be useful for adjusting the algorithm's behavior, favoring either optimality or speed.
 
-Incremental A* allows for a partial update of the search space when new information becomes available. This can be useful in dynamic environments where the state space changes over time. The algorithm incrementally updates the solution as new portions of the graph are explored.
-Anytime A Search:*
+### Bidirectional A Search:\*
 
-Anytime A* is designed to provide a valid solution quickly and then continuously refines the solution over time. It allows the algorithm to be interrupted at any point, returning the best solution found up to that moment.
-Real-Time A Search:*
+In bidirectional A\* search, the search is performed simultaneously from both the start and goal states. The algorithm continues until the two searches meet in the middle. This approach can be more efficient for certain types of graphs, especially when the branching factor is high.
+
+### Real-Time A Search:\*
 
 Real-Time A* is an extension of A* designed for environments where computation time is limited. It uses an incremental approach, exploring nodes in the order of their estimated cost until the available time runs out, returning the best solution found.
-Memory-Bounded A Search:*
+Memory-Bounded A Search:\*
 
-In memory-bounded A*, the search is constrained by a given memory limit. The algorithm prioritizes nodes in the search space based on their estimated cost and available memory, discarding less promising nodes when memory is exhausted.
-These variations address different challenges and requirements, making A* adaptable to a wide range of problem domains and computational constraints. The choice of a specific variation depends on the characteristics of the problem, available resources, and the desired trade-offs between optimality and efficiency.
-
-
-
-
-
-
-
+These variations address different challenges and requirements, making A\* adaptable to a wide range of problem domains and computational constraints. The choice of a specific variation depends on the characteristics of the problem, available resources, and the desired trade-offs between optimality and efficiency.
 
 # Summary
 
