@@ -85,3 +85,9 @@ def linear_conflict(board, goal_board):
 <a href="https://igorgarbuz.github.io/n-puzzle/">Here</a> is a cool online repository that solves the 15-puzzle problem using various algorithms and heuristics.
 
 <img src="../../images/n-puzzle-solver.png"/>
+
+## Summary
+
+Heuristic functions are used to guide the search algorithm to find the optimal solution faster. A heuristic function is admissible if it never overestimates the cost of reaching the goal, and it is consistent if the estimated cost of reaching the goal from node `n` is less than or equal to the cost of reaching node `n'` from node `n` plus the estimated cost of reaching the goal from node `n'`.
+
+Different problems require different heuristic functions. The design of an effective heuristic function is a challenging task and requires a good understanding of the problem. It significantly affects the performance of the search algorithm.

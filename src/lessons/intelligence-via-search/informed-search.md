@@ -156,6 +156,56 @@ if __name__ == "__main__":
 
 ```
 
+The output of the program is:
+
+```
+Greedy BFS Solution:
+# some steps omitted
+......
+
+Move left:
+[1, 2, 0, 7]
+[5, 6, 4, 3]
+[9, 10, 11, 8]
+[13, 14, 15, 12]
+
+Move left:
+[1, 2, 0, 4]
+[5, 6, 3, 7]
+[9, 10, 11, 8]
+[13, 14, 15, 12]
+
+
+Move down:
+[1, 2, 3, 4]
+[5, 6, 0, 7]
+[9, 10, 11, 8]
+[13, 14, 15, 12]
+
+
+Move right:
+[1, 2, 3, 4]
+[5, 6, 7, 0]
+[9, 10, 11, 8]
+[13, 14, 15, 12]
+
+
+Move down:
+[1, 2, 3, 4]
+[5, 6, 7, 8]
+[9, 10, 11, 0]
+[13, 14, 15, 12]
+
+
+Move down:
+[1, 2, 3, 4]
+[5, 6, 7, 8]
+[9, 10, 11, 12]
+[13, 14, 15, 0]
+
+178
+```
+
 My computer was able to show me the solution of the 15-Puzzle problem in less than a second This is a huge improvement over the BFS algorithm. The BFS algorithm took a long time to find the solution and most of the time it ran out of memory.
 
 ### Different Heuristic Functions

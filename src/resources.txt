@@ -1,7 +1,7 @@
 Possible Additions:
 - provide pesudo code for search problems 
-- use the Node data structure instead of the path and tuple
-
+- use the Node data structure instead of the path and tuple for space optimization
+- admissible heurstics 
 
 
 https://github.com/Leonardpepa/Pathfinding-Visualizer

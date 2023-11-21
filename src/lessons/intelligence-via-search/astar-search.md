@@ -8,6 +8,18 @@ The A\* search algorithm is an informed search algorithm. Beside using a heurist
 <iframe src="https://www.youtube.com/embed/" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 
+## A\* Search Optimality
+
+A\* search is guaranteed to find the optimal solution if the heuristic function is **admissible** and **consistent**.
+
+An **admissible** heuristic function `h(n)` is one that never overestimates the cost of reaching the goal. In other words, the heuristic function should always be less than or equal to the actual cost of reaching the goal.
+
+A heuristic function `h(n)` is **consistent** if the estimated cost of reaching the goal from the current state is no greater than the step cost of getting to the next state plus the estimated cost of reaching the goal from the next state. So, if I'm at state `n`, and I take an action that costs `c` to get to a sucessor state `n'`, the estimated cost of reaching the goal from state `n` should be less than or equal to the step cost of getting to state `n'` plus the estimated cost of reaching the goal from state `n'`.
+
+`h(n) <= c + h(n')`
+
+In our next example, we will use the `count_misplaced_tiles` heuristic function to solve the 15-puzzle problem with A\* search. The `count_misplaced_tiles` heuristic function is admissible and consistent for the 15-puzzle problem, so it is guaranteed to find the optimal solution (number of moves to solve the puzzle).
+
 ## Solving the 15-Puzzle Problem with A\* Search
 
 To solve the 15-Puzzle problem with the A\* search algorithm, we need to modify our algorithm to use both the cost of the path and the heuristic function to guide its search. The additional component we need will be the calculation of `g_value` which is the cost of the path from the start state to the current state.
@@ -112,7 +124,7 @@ def a_star_search(initial_board, goal_board):
     for move in ['up', 'down', 'left', 'right']:
       next_board = make_move(board, move)
       if next_board and tuple(next_board) not in visited:
-        heuristic = manhattan_distance(next_board, goal_board)
+        heuristic = count_misplaced_tiles(next_board, goal_board)
         g_value = current_cost + 1  # Increment the cost
         if heuristic is not None:
           total_cost = heuristic + g_value
@@ -152,16 +164,57 @@ if __name__ == "__main__":
   astar_solution = a_star_search(initial_board, goal_board)
 
   print("\nA* Solution:")
-  if bfs_solution:
-    print_solution(initial_board, bfs_solution)
+  if astar_solution:
+    print_solution(initial_board, astar_solution)
   else:
     print("No solution found with A*")
+```
+
+The output of the program is:
 
 ```
+A* Solution:
+# some steps omitted
+.....
+Move up:
+[1, 2, 3, 4]
+[5, 6, 11, 7]
+[9, 10, 0, 8]
+[13, 14, 15, 12]
+
+
+Move up:
+[1, 2, 3, 4]
+[5, 6, 0, 7]
+[9, 10, 11, 8]
+[13, 14, 15, 12]
+
+
+Move right:
+[1, 2, 3, 4]
+[5, 6, 7, 0]
+[9, 10, 11, 8]
+[13, 14, 15, 12]
+
+
+Move down:
+[1, 2, 3, 4]
+[5, 6, 7, 8]
+[9, 10, 11, 0]
+[13, 14, 15, 12]
+
+
+Move down:
+[1, 2, 3, 4]
+[5, 6, 7, 8]
+[9, 10, 11, 12]
+[13, 14, 15, 0]
+
+24
+```
+
+Comparing that with the number of steps taken by the greedy best-first search algorithm, we can see that the A\* search algorithm found the optimal solution with 24 steps, while the greedy best-first search algorithm found a solution with 187 steps.
 
 # Summary
 
-Heuristic functions are a crucial topic in AI as they significantly impact the performance of search algorithms. We will delve into various heuristic functions in the upcoming lesson. For now, contemplate other heuristic functions that can be applied to our car and 15-puzzle examples.
-
-Note:
-The design of effective heuristic functions holds great importance in AI, as it profoundly influences the performance of search algorithms. In the next lesson, we will explore different heuristic functions. For now, consider alternative heuristic functions that can be utilized in our car and 15-puzzle examples.
+The A* search algorithm is an informed search algorithm that uses both the cost of the path and the heuristic function to guide its search. The A* search algorithm is guaranteed to find the optimal solution if the heuristic function is admissible and consistent.
