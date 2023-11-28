@@ -344,10 +344,12 @@ if __name__ == "__main__":
 
 ## 🛑 Critical Warning: Diving into Complexity
 
-I've included a straightforward and solvable configuration in the code above for us to test. However, numerous other configurations will take an extensive amount of time to solve. In fact, your computer's memory will mostly run out, and the program will crash before completing the solution. Additionally, there are configurations that are unsolvable. You can find solvable configurations on online games, such as [this one](https://15puzzle.netlify.app/).
+I've included a straightforward and solvable configuration in the code above for us to test. However, numerous other configurations will take an extensive amount of time to solve. In fact, your computer's memory will mostly run out, and the program will crash before completing the solution.
+
+Additionally, there are configurations that are unsolvable. You can find solvable configurations on online games, such as [this one](https://15puzzle.netlify.app/).
 
 ## 🙎🏽 Failure of BFS and DFS
 
-The 15-puzzle problem is way more complex than the 8-puzzle problem. The 8-puzzle problem has 9! = 362,880 states, while the 15-puzzle problem has 16! = 20,922,789,888,000 states. This is a huge number of states to explore. Even with the BFS algorithm, it will take a long time to find the solution. With DFS, it will take even longer. In fact, it will take so long that it will be impractical to use any of them to solve the 15-puzzle problem.
+The 15-puzzle problem is way more complex than the 8-puzzle problem. The 8-puzzle problem has `9! = 362,880` states, while the 15-puzzle problem has `16! = 20,922,789,888,000 `states. This is a huge number of states to explore. Even with the BFS algorithm, it will take a long time to find the solution. With DFS, it will take even longer. In fact, it will take so long that it will be impractical to use any of them to solve the 15-puzzle problem.
 
 That's why we need to use more efficient algorithms to takle this complexity. In the next lesson, we will learn about informed search algorithms and how to use them to efficiently solve this problems.
