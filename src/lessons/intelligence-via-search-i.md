@@ -7,17 +7,12 @@
 
 You will acquire practical skills in modeling and constructing programs to achieve intelligence by addressing search problems. We will learn how to solve problems like maze navigation and pathfinding using different search algorithms like depth-first search, breadth-first search, and A\* search.
 
-## This Week's Assessments:
+## This Week's Work:
 
-Your tasks for this week are:
-
-- Quiz (7.5% of your grade).
-- Coding Assignment (10% of your grade).
-
-The coding assignment will involve "Building a shipping route planner using the A\* search algorithm."
+- Study the material and solve the practical exercises.
+- Complete the quiz and coding assignment of this week. The coding assignment will involve "Building a shipping route planner using the A\* search algorithm."
 
 **Upon completing this week, you will be able to:**
 
-- Describe the field of AI and its fundamental concepts.
-- Define search problems and learn how to solve them with various search algorithms.
-- Apply search algorithms to the design of artificial agents capable of planning.
+- Develop intelligent software agents capable of solving diverse problems, such as pathfinding, and playing games like the 15-puzzle.
+- Explain the field of AI and its fundamental concepts.

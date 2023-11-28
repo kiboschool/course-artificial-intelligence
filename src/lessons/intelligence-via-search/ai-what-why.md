@@ -94,7 +94,15 @@ Here is a screenshot of the [Google Cloud Platform](https://cloud.google.com/) w
   <img src="../../images/gcp-gpu.png"  />
 </p>
 
-## Self Assessment":
+## Summary:
+
+- AI is the field of building systems that can think and act rationally (guided by reasoning, logic, knowledge, and specific goals).
+
+- The term "agent" is used to describe an entity striving to achieve specific objectives. An agent can be a person, a machine, software, or a combination of these.
+
+- AI is getting so much attention now due to many reasons including the availability of large public datasets and the advancement of hardware technologies.
+
+## Check your understanding:
 
 - Explain AI to a 10-year-old.
 - List two reasons for the current surge of interest in AI.
@@ -104,13 +112,5 @@ Here is a screenshot of the [Google Cloud Platform](https://cloud.google.com/) w
 - Search the web and find some of the latest hardware devices that empower AI applications.
 
 <p style=" align:center;font-size:160%;font-family:courier; color:orange;">
-  💬 Share it with us on Discord <a target = "_blank" href="https://discord.com/channels/1167059986019520563/1167060638300913786">here</a>.
+  💬 Share your findings with us on Discord <a target = "_blank" href="https://discord.com/channels/1167059986019520563/1167060638300913786">here</a>.
   </p>
-
-## 📒 Summary:
-
-- AI is the field of building machines that can think and act rationally (guided by reasoning, logic, knowledge, and specific goals).
-
-- The term "agent" is used to describe an entity striving to achieve specific objectives. An agent can be a person, a machine, software, or a combination of these.
-
-- AI is getting so much attention now due to many reasons including the availability of large public datasets and the advancement of hardware technologies.
