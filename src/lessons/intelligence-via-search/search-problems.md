@@ -31,7 +31,7 @@ Each of these paths represents distinct solutions to our problem. The decisions 
 
 **This is a search problem identified by the following:**
 
-- We have an agent (the car) that is trying to find a solution (the path) within a defined problem space (the road).
+- We have an agent (the car) that is trying to find a solution (the path) within a defined problem space (the road). The agent in this case is called a **problem-solving agent** or an agent that **plans ahead**.
 - The problem space, or **state space**, consists of various states or configurations (the different positions of the car).
 - The goal is to find a sequence of actions that will lead from an initial state (the starting position of the car) to a desired goal state (the destination).
 

@@ -5,7 +5,7 @@
 </p>
 👋 Welcome to the first week of the course. In this week, you will be introduced to the field of AI and the fundamental concepts necessary for building AI systems.
 
-You'll learn how to achieve intelligence by modeling and solving search problems. We will learn how to solve problems like maze navigation and pathfinding using different search algorithms like depth-first search, breadth-first search, and A\* search.
+You will acquire practical skills in modeling and constructing programs to achieve intelligence by addressing search problems. We will learn how to solve problems like maze navigation and pathfinding using different search algorithms like depth-first search, breadth-first search, and A\* search.
 
 ## This Week's Assessments:
 
