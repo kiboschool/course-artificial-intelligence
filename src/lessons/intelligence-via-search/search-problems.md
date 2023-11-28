@@ -2,7 +2,7 @@
 
 _Estimated time to finish: 60-90 minutes_
 
-## Ready for some fun?
+## Ready for some excitement?
 
 Would you be interested in learning how to program a computer to solve mazes, puzzles, find paths, or optimize item arrangements? What if you could also use this knowledge to minimize your time spent in traffic or create a system that plays chess or solves a Rubik's cube? This is precisely the essence of our lesson on "**Search**."
 
@@ -48,11 +48,11 @@ Let's consider another example. If we have a chessboard and eight queens, how ca
 - There are various configurations (states) of the queens on the chessboard.
 - The goal is to find a sequence of actions that will lead from an initial state (the starting position of the queens) to a desired goal state (the configuration of the queens on the chessboard so that no queen can attack another queen).
 
-### More Examples
+### Other Interesting Examples 🤩
 
-There are many other examples of search problems. Retrieving relevant web pages or documents in response to a search query, finding the optimal path for data packets to travel from a source to a destination, solving puzzles like Sudoku or Rubik's Cube, and determining the optimal route between two locations on a map are all examples of search problems.
+Search problems will help us solve very interesting problems. Retrieving relevant web pages or documents in response to a search query, finding the optimal path for data packets to travel from a source to a destination, solving puzzles like Sudoku or Rubik's Cube, and determining the optimal route between two locations on a map are all examples of search problems. You will learn how to solve such problems in this course 🚀.
 
-## Understanding Our Objective
+## 🎯 Understanding Our Objective
 
 One might question whether we are genuinely searching for something in this context. Well, you can think of the path itself as the object of our search. In the car example, our mission is to discover the path leading us to point B (**by searching possible states**). In the 8-queens problem, our mission is to find the configuration of the queens on the chessboard (by searching possible states starting with an initial one).
 
@@ -163,6 +163,12 @@ Don't rush through it. This is a crucial step in your learning process. If you c
 <p align="center">
 <img src="../../images/10-min-timer.png" width = "300px"/>
 </p>
+
+<aside>
+<p align="center">
+🗒️ Modeling search problems is the first step in building intelligent software agents.
+</p>
+</aside>
 
 Unfold the sample code below for an idea of how a transition model for this environment can be implemented.
 
