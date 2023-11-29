@@ -27,6 +27,8 @@
 ### Week 2
 
 - [Intelligence with Search II](lessons/intelligence-with-search-ii.md)
+  - [Agents and Environments](lessons/intelligence-with-search2/agents-and-environments.md)
+  - [Adversarial Search](lessons/intelligence-with-search2/adversarial-search.md)
 
 ### Refreshers & Resources
 
