@@ -5,7 +5,7 @@ In this course, you will be assessed on your ability to apply the concepts and t
 ## Grading:
 
 - Programming Assignments/Projects: 30%
-  - Total of 8 programming assignments
+  - Total of 6 programming assignments
 - Quizzes: 40%
   - Total of 8 quizzes (weekly quizzes on Gradescope)
 - Final Project/Exam: 30%
