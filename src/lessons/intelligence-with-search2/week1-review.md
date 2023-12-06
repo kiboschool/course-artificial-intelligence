@@ -37,6 +37,18 @@ Environments can be classified along several dimensions:
 - Discrete vs. continuous
 - Single-agent vs. multi-agent
 
+<aside>
+
+The enviroments we worked with in the previous week were fully observable, deterministic, sequential, static, discrete, and single-agent.
+
+- Fully observable means we have access to the complete state of the environment at each point in time.
+- Deterministic means the next state of the environment is completely determined by the current state and the action executed by the agent. There is no guessing or randomness involved.
+- Sequential means the current decision could affect all future decisions.
+- Static means the environment does not change while the agent is deliberating.
+
+</aside>
+
+
 ### AI Assistant Tip
 Get a glance at the different types of agents and environments by asking ChatGPT to explain the above terms. You can use simple prompts like:
 
