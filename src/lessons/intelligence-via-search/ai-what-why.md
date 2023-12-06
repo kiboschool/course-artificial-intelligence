@@ -51,6 +51,12 @@ Imagine an agent operating a vehicle. Here, making choices aimed at maximizing t
 
 </aside>
 
+<aside>
+
+An **agent** is anything that can perceive its environment through sensors and act upon that environment through actuators (Stuart Russell and Peter Norvig). A human agent has eyes, ears, and other organs for sensors and hands, legs, vocal tract, and so on for actuators. A robotic agent might have cameras and infrared range finders for sensors and various motors for actuators. A software agent receives keystrokes, file contents, and network packets as sensory inputs and acts on the environment by displaying on the screen, writing files, and sending network packets.
+
+</aside>
+
 ## Artificial Intelligence (AI)
 
 <aside>

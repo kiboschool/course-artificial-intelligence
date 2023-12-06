@@ -27,8 +27,12 @@
 ### Week 2
 
 - [Intelligence with Search II](lessons/intelligence-with-search-ii.md)
-  - [Agents and Environments](lessons/intelligence-with-search2/agents-and-environments.md)
+  - [Week 1 Review](lessons/intelligence-with-search2/week1-review.md)
   - [Adversarial Search](lessons/intelligence-with-search2/adversarial-search.md)
+  - [Alpha-Beta and Depth-Limiting](lessons/intelligence-with-search2/alpha-beta-depth-limiting.md)
+  - [Game Theory](lessons/intelligence-with-search2/game-theory.md)
+  - [Practice Problems](lessons/intelligence-with-search2/practice-problems.md)
+  - [Assignment](lessons/intelligence-with-search2/assignment.md)
 
 ### Refreshers & Resources
 
