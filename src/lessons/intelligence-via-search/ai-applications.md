@@ -1,7 +1,5 @@
 # Applications of AI in the Real World
 
-_Estimated time to finish: 20 minutes_
-
 Artificial Intelligence (AI) has become an integral part of our daily lives, revolutionizing various industries and solving complex problems. Below are just a few examples of AI applications in the real world.
 
 ## Healthcare:

@@ -1,4 +1,4 @@
-## A\* Search Algorithm
+# A\* Search Algorithm
 
 The A\* search algorithm is an informed search algorithm. Beside using a heuristic function, like the greedy best-first search algorithm, it also uses the cost of the path from the start state to the current state to guide its search. The cost of the path is also known as the **g-value**. As a function. it is denoted as `g(n)`. The heuristic function is denoted as `h(n)`. The A\* search algorithm uses the following function to guide its search:
 

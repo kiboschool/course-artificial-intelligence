@@ -1,7 +1,6 @@
 [DRAFT]: # "Lesson is being edited"
 
 # Adversarial Search
-Estimated time to finish: 90-180 minutes
 
 
 So far, the problems we have examined have been single-agent problems. In other words, there is only one agent (such as a car or a player of a 15-puzzle game) attempting to solve the problem, such as finding a path to a goal point or rearranging the tiles to the correct order. However, in many problems, especially games like tic-tac-toe, there are two agents trying to solve the problem, each one acting against the other. In this lesson, we will explore how to address such problems.

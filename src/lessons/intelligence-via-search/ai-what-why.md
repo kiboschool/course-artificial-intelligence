@@ -1,7 +1,5 @@
 # AI: What and Why
 
-_Estimated time to finish: 30-45 minutes_
-
 <p align="center">
   <img src="../../images/intell-1.png" alt="Robot" />
 </p>

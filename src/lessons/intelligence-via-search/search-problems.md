@@ -1,7 +1,5 @@
 # Search Problem Modeling
 
-_Estimated time to finish: 60-90 minutes_
-
 ## Ready for some excitement?
 
 Would you be interested in learning how to program a computer to solve mazes, puzzles, find paths, or optimize item arrangements? What if you could also use this knowledge to minimize your time spent in traffic or create a system that plays chess or solves a Rubik's cube? This is precisely the essence of our lesson on "**Search**."

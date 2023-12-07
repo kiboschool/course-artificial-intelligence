@@ -1,7 +1,5 @@
 # Practice Problems
 
-_Estimated time to finish: 90 - 120 minutes_
-
 In this lesson we will solve the 8-Puzzle and the 15-Puzzle Problem using DFS and BFS.
 
 ## 8-Puzzle Problem

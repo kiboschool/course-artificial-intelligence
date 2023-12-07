@@ -1,7 +1,5 @@
 # Search Algorithms
 
-_Estimated Time: 90 - 180 minutes_
-
 <img src="../../images/lets-solve-maze.png" />
 
 Now that we have learned about search problems, It's time to learn how to solve them. In this lesson, we will learn about search algorithms and how to use them to solve search problems.
