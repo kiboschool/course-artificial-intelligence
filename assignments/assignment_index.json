@@ -1,0 +1,215 @@
+{
+  "name": "Artificial Intelligence",
+  "id": "666688",
+  "code": "CSE005",
+  "assignments": [
+    {
+      "id": "4546050",
+      "name": "Final Project",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4546050",
+      "filename": "final_project.pdf"
+    },
+    {
+      "id": "3725614",
+      "name": "Week 1 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/3725614",
+      "filename": "week_1_quiz.pdf"
+    },
+    {
+      "id": "3765529",
+      "name": "Week 2 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/3765529",
+      "filename": "week_2_quiz.pdf"
+    },
+    {
+      "id": "4051020",
+      "name": "Week 3 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4051020",
+      "filename": "week_3_quiz.pdf"
+    },
+    {
+      "id": "4129284",
+      "name": "Week 4 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4129284",
+      "filename": "week_4_quiz.pdf"
+    },
+    {
+      "id": "4113072",
+      "name": "Week 4 Reinforcement Learning",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4113072",
+      "filename": "week_4_reinforcement_learning.pdf"
+    },
+    {
+      "id": "4173641",
+      "name": "Week 5 Machine Learning",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4173641",
+      "filename": "week_5_machine_learning.pdf"
+    },
+    {
+      "id": "4135408",
+      "name": "Week 5 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4135408",
+      "filename": "week_5_quiz.pdf"
+    },
+    {
+      "id": "4190579",
+      "name": "Week 6 Neural Networks",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4190579",
+      "filename": "week_6_neural_networks.pdf"
+    },
+    {
+      "id": "4135592",
+      "name": "Week 6 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4135592",
+      "filename": "week_6_quiz.pdf"
+    },
+    {
+      "id": "4230893",
+      "name": "Week 7 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4230893",
+      "filename": "week_7_quiz.pdf"
+    },
+    {
+      "id": "4262721",
+      "name": "Week 8 NLP",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4262721",
+      "filename": "week_8_nlp.pdf"
+    },
+    {
+      "id": "4268402",
+      "name": "Week 8 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4268402",
+      "filename": "week_8_quiz.pdf"
+    },
+    {
+      "id": "4546050",
+      "name": "Final Project",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4546050",
+      "filename": "final_project.pdf"
+    },
+    {
+      "id": "3725614",
+      "name": "Week 1 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/3725614",
+      "filename": "week_1_quiz.pdf"
+    },
+    {
+      "id": "3765529",
+      "name": "Week 2 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/3765529",
+      "filename": "week_2_quiz.pdf"
+    },
+    {
+      "id": "4051020",
+      "name": "Week 3 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4051020",
+      "filename": "week_3_quiz.pdf"
+    },
+    {
+      "id": "4129284",
+      "name": "Week 4 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4129284",
+      "filename": "week_4_quiz.pdf"
+    },
+    {
+      "id": "4113072",
+      "name": "Week 4 Reinforcement Learning",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4113072",
+      "filename": "week_4_reinforcement_learning.pdf"
+    },
+    {
+      "id": "4173641",
+      "name": "Week 5 Machine Learning",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4173641",
+      "filename": "week_5_machine_learning.pdf"
+    },
+    {
+      "id": "4135408",
+      "name": "Week 5 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4135408",
+      "filename": "week_5_quiz.pdf"
+    },
+    {
+      "id": "4190579",
+      "name": "Week 6 Neural Networks",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4190579",
+      "filename": "week_6_neural_networks.pdf"
+    },
+    {
+      "id": "4135592",
+      "name": "Week 6 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4135592",
+      "filename": "week_6_quiz.pdf"
+    },
+    {
+      "id": "4230893",
+      "name": "Week 7 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4230893",
+      "filename": "week_7_quiz.pdf"
+    },
+    {
+      "id": "4262721",
+      "name": "Week 8 NLP",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4262721",
+      "filename": "week_8_nlp.pdf"
+    },
+    {
+      "id": "4268402",
+      "name": "Week 8 Quiz",
+      "course_id": "666688",
+      "course_code": "CSE005",
+      "href": "https://gradescope.com/courses/666688/assignments/4268402",
+      "filename": "week_8_quiz.pdf"
+    }
+  ]
+}

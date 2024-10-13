@@ -1,0 +1,671 @@
+# Visit https://docs.google.com/document/d/1Hm41CGu0pZrGB7_XrPZR50DU7DXvqeC6aZuaTLpRLlo/edit 
+# for full details about the contents of the course.yml file. 
+# 
+# - Top level details of the course: 
+#     name: course name
+#     code: course code
+#     term: when is this offered
+#     about_path: the path to the course overview md file
+#     image_path: the path to an image to use as the course header
+#
+# - Units
+#     name: name of the unit (e.g. Week 1: Introduction)
+#     activities: list of the activities in the Unit
+# 
+# - Activities
+#     name: name of the activity
+#     path: where to find the file for the activity
+#     workload: how many minutes the activity is estimated to take
+#     type: `lesson` or `assignment`
+#     kind: airlock resource kind: 
+#       `GENERAL`, `MEETING`, `PUBLICATION`, `PUBLICATION_REVIEWED`, 
+#       `ASSIGNMENT`, `ASSIGNMENT_SUMMATIVE`
+#     publish: Is this ready, or still a draft? Publish can be set to:
+#       - `true` (publish to students now)
+#       - `false` (do not publish to students), default value if not specified
+#       - date, formatted like `2023-10-25` (publish to students on that date) 
+#     due: When is the due date for the activity (e.g. 2023-12-27)
+#     grade_weight: what percent of the course grade is this 
+#       (for now, only for assignments).  Must sum to 100.
+
+name: Artificial Intelligence
+code: CSE005
+term: Apr-2024
+about_path: src/front-matter/course-overview.md
+units:
+  - name: Course Overview
+    activities:
+      - name: Introduction
+        path: src/front-matter/course-overview.md
+        type: lesson
+        kind: GENERAL
+        workload: 15
+        publish: true
+      - name: Live Classes
+        path: src/front-matter/live-classes.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: true
+      - name: Assessments
+        path: src/front-matter/assessments.md
+        type: lesson
+        kind: GENERAL
+        workload: 0
+        publish: true
+      - name: Getting Help
+        path: src/front-matter/getting-help.md
+        type: lesson
+        kind: GENERAL
+        workload: 0
+        publish: true
+      - name: Giving Help
+        path: src/front-matter/giving-help.md
+        type: lesson
+        kind: GENERAL
+        workload: 0
+        publish: true
+      - name: Academic Integrity
+        path: src/front-matter/academic-integrity.md
+        type: lesson
+        kind: GENERAL
+        workload: 10
+        publish: true
+      - name: Course Tools
+        path: src/front-matter/course-tools.md
+        type: lesson
+        kind: GENERAL
+        workload: 15
+        publish: true
+  - name: 'Module 1: Intelligence via Search'
+    activities: 
+      - name: Introduction
+        path: src/lessons/intelligence-via-search-i.md
+        type: lesson
+        kind: GENERAL
+        workload: 15
+        publish: 2024-04-08
+      - name: 'AI: What and Why'
+        path: src/lessons/intelligence-via-search/ai-what-why.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: 2024-04-08
+      - name: 'AI Applications'
+        path: src/lessons/intelligence-via-search/ai-applications.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: 2024-04-08
+      - name: 'Search Problems'
+        path: src/lessons/intelligence-via-search/search-problems.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: 2024-04-08
+      - name: 'Search Algorithms'
+        path: src/lessons/intelligence-via-search/search-algorithms.md
+        type: lesson
+        kind: GENERAL
+        workload: 180
+        publish: 2024-04-08
+      - name: 'Practice Problems'
+        path: src/lessons/intelligence-via-search/practice-problems.md
+        type: lesson
+        kind: GENERAL
+        workload: 180
+        publish: 2024-04-08
+      - name: 'Informed Search'
+        path: src/lessons/intelligence-via-search/informed-search.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: 2024-04-08
+      - name: 'A\* Search'
+        path: src/lessons/intelligence-via-search/astar-search.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: 2024-04-08
+      - name: 'More Heuristics'
+        path: src/lessons/intelligence-via-search/more-heuristics.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: 2024-04-08
+      - name: 'Week 1 Quiz'
+        path: src/lessons/intelligence-via-search/quiz.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 60
+        publish: 2024-04-08
+        due: 2024-04-13
+        grade_weight: 5
+      - name: 'Week 1 Shipping Route Finder'
+        path: src/lessons/intelligence-via-search/assignment.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 180
+        publish: 2024-04-08
+        due: 2024-04-15
+        grade_weight: 5
+  - name: 'Module 2: Game Playing'
+    activities:
+      - name: Introduction
+        path: src/lessons/intelligence-via-search-ii.md
+        type: lesson
+        kind: GENERAL
+        workload: 15
+        publish: true
+      # - name: 'AI Agents'
+      #   path: src/lessons/intelligence-via-search2/ai-agents-environment.md
+      #   type: lesson
+      #   kind: GENERAL
+      #   workload: 30
+      #   publish: false
+      - name: 'Adversarial Search'
+        path: src/lessons/intelligence-via-search2/adversarial-search.md
+        type: lesson
+        kind: GENERAL
+        workload: 180
+        publish: true
+      - name: 'Optimization Techniques'
+        path: src/lessons/intelligence-via-search2/optimization-techniques.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: true
+      - name: 'Practice Quiz'
+        path: src/lessons/intelligence-via-search2/practice-quiz.md
+        type: lesson
+        kind: GENERAL
+        workload: 60
+        publish: true
+        due: 2024-05-03
+      - name: 'AI Game Playing'
+        path: src/lessons/intelligence-via-search2/game-playing-ai.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: true
+      - name: 'Practice Problems'
+        path: src/lessons/intelligence-via-search2/practice-problems.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: true
+      - name: 'Week 2 Quiz'
+        path: src/lessons/intelligence-via-search2/quiz.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 60
+        publish: true
+        due: 2024-04-20
+        grade_weight: 5
+      - name: 'Week 2 Tic-Tac-Toe Minimax Alpha-Beta Pruning'
+        path: src/lessons/intelligence-via-search2/assignment.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 120
+        publish: true
+        due: 2024-04-23
+        grade_weight: 6
+  - name: 'Module 3: Constraint Satisfaction Problems'
+    activities:
+      - name: Introduction
+        path: src/lessons/constraint-satisfaction-problems/introduction.md
+        type: lesson
+        kind: GENERAL
+        workload: 15
+        publish: true
+      - name: 'CSPs VS Search'
+        path: src/lessons/constraint-satisfaction-problems/csp-search.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: true
+     
+      - name: 'Modeling CSPs'
+        path: src/lessons/constraint-satisfaction-problems/modeling-csps.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: true
+
+      - name: 'Solving CSPs'
+        path: src/lessons/constraint-satisfaction-problems/solving-csps.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: true
+      - name: 'Solving CSPs II'
+        path: src/lessons/constraint-satisfaction-problems/solving-csps-ii.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: true
+      - name: 'Iterative Improvement'
+        path: src/lessons/constraint-satisfaction-problems/iterative-improvement.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: true
+      - name: 'Practice'
+        path: src/lessons/constraint-satisfaction-problems/practice.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: true
+      - name: 'Week 3 Quiz'
+        path: src/lessons/constraint-satisfaction-problems/quiz.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 60
+        publish: true
+        due: 2024-04-27
+        grade_weight: 5
+      - name: 'Week 3 Faculty Class Scheduler'
+        path: src/lessons/constraint-satisfaction-problems/assignment.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 60
+        publish: true
+        due: 2024-04-30
+        grade_weight: 6
+  - name: 'Module 4: Reinformcement Learning'
+    activities:
+      - name: 'Introduction'
+        path: src/lessons/reinforcement-learning/introduction.md
+        type: lesson
+        kind: GENERAL
+        workload: 5
+        publish: true
+      - name: 'RL Framework'
+        path: src/lessons/reinforcement-learning/rl-framework.md
+        type: lesson
+        kind: GENERAL
+        workload: 45
+        publish: true
+      - name: 'Markov Decision Processes'
+        path: src/lessons/reinforcement-learning/mdp.md
+        type: lesson
+        kind: GENERAL
+        workload: 90
+        publish: true
+      - name: 'MDP Exercise'
+        path: src/lessons/reinforcement-learning/mdp-exercise.md
+        type: lesson
+        kind: GENERAL
+        workload: 90
+        publish: true
+      - name: 'Solving MDPs'
+        path: src/lessons/reinforcement-learning/solving-mdp.md
+        type: lesson
+        kind: GENERAL
+        workload: 90
+        publish: true
+      - name: 'Value Iteration Mini-Blackjack'
+        path: src/lessons/reinforcement-learning/vi-blackjack.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: true
+      - name: 'Value Iteration Frozen Lake'
+        path: src/lessons/reinforcement-learning/vi-frozenlake.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: true
+      - name: 'Solving MDPs II'
+        path: src/lessons/reinforcement-learning/solving-mdp2.md
+        type: lesson
+        kind: GENERAL
+        workload: 90
+        publish: true
+
+      - name: 'Policy Iteration Frozen Lake'
+        path: src/lessons/reinforcement-learning/pi-frozenlake.md
+        type: lesson
+        kind: GENERAL
+        workload: 60
+        publish: true
+      - name: 'Week 4 Quiz'
+        path: src/lessons/reinforcement-learning/quiz.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 60
+        publish: true
+        due: 2024-05-03
+        grade_weight: 5
+      - name: 'Week 4 Reinforcement Learning'
+        path: src/lessons/reinforcement-learning/assignment.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 180
+        publish: true
+        due: 2024-05-03
+        grade_weight: 6
+
+  - name: 'Module 5: Machine Learning'
+    activities:
+      - name: 'Introduction'
+        path: src/lessons/machine-learning.md
+        type: lesson
+        kind: GENERAL
+        workload: 20
+        publish: true
+      - name: Regression
+        path: src/lessons/machine-learning/regression.md
+        type: lesson
+        kind: GENERAL
+        workload: 90
+        publish: true
+      - name: Exercise
+        path: src/lessons/machine-learning/regression-exercise.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: true
+      - name: Gradient Descent
+        path: src/lessons/machine-learning/gradient-descent.md
+        type: lesson
+        kind: GENERAL
+        workload: 45
+        publish: true
+      - name: Multiple Regression
+        path: src/lessons/machine-learning/multiple-regression.md
+        type: lesson
+        kind: GENERAL
+        workload: 90
+        publish: true
+      - name: Practice Regression
+        path: src/lessons/machine-learning/practice-regression.md
+        type: lesson
+        kind: GENERAL
+        workload: 90
+        publish: true
+      - name: Classification
+        path: src/lessons/machine-learning/classification.md
+        type: lesson
+        kind: GENERAL
+        workload: 90
+        publish: true
+      - name: Practice Classification
+        path: src/lessons/machine-learning/practice-classification.md
+        type: lesson
+        kind: GENERAL
+        workload: 90
+        publish: false
+      - name: 'Model Improvement'
+        path: src/lessons/machine-learning/model-improvement.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: true
+      - name: Naive Bayes Classifier
+        path: src/lessons/machine-learning/naive-bayes.md
+        type: lesson
+        kind: GENERAL
+        workload: 90
+        publish: true
+      - name: Other Classification Algorithms
+        path: src/lessons/machine-learning/classification-algorithms.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: true
+      - name: 'Week 5 Quiz'
+        path: src/lessons/machine-learning/quiz.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 60
+        publish: true
+        due: 2024-05-15
+        grade_weight: 5
+      - name: 'Week 5 Machine Learning'
+        path: src/lessons/machine-learning/assignment.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 180
+        publish: true
+        due: 2024-05-13
+        grade_weight: 6
+
+  - name: 'Module 6: Neural Networks'
+    activities:
+      - name: 'Introduction'
+        path: src/lessons/neural-networks.md
+        type: lesson
+        kind: GENERAL
+        workload: 5
+        publish: true
+      - name: 'Neural Networks'
+        path: src/lessons/neural-networks/neural-networks.md
+        type: lesson
+        kind: GENERAL
+        workload: 45
+        publish: true
+      - name: 'Types of Neural Networks'
+        path: src/lessons/neural-networks/nn-types.md
+        type: lesson
+        kind: GENERAL
+        workload: 20
+        publish: true
+
+      - name: 'Practice Neural Networks'
+        path: src/lessons/neural-networks/nn-practice.md
+        type: lesson
+        kind: GENERAL
+        workload: 60
+        publish: true
+      - name: 'Computer Vision'
+        path: src/lessons/neural-networks/computer-vision.md
+        type: lesson
+        kind: GENERAL
+        workload: 20
+        publish: true
+      - name: 'Convolutional Neural Networks'
+        path: src/lessons/neural-networks/cnn.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: true
+      - name: 'Building CNNs'
+        path: src/lessons/neural-networks/building-cnn.md
+        type: lesson
+        kind: GENERAL
+        workload: 60
+        publish: true
+      - name: 'CNN Layers'
+        path: src/lessons/neural-networks/cnn-layers.md
+        type: lesson
+        kind: GENERAL
+        workload: 60
+        publish: true
+      - name: 'Classic CNN Architectures'
+        path: src/lessons/neural-networks/classic-cnns.md
+        type: lesson
+        kind: GENERAL
+        workload: 60
+        publish: true
+      - name: 'Practice CNNs'
+        path: src/lessons/neural-networks/practice-cnn.md
+        type: lesson
+        kind: GENERAL
+        workload: 60
+        publish: true
+      - name: 'AlexNet'
+        path: src/lessons/neural-networks/alex-net.md
+        type: lesson
+        kind: PUBLICATION_REVIEWED
+        workload: 240
+        publish: true
+      - name: 'Week 6 Quiz'
+        path: src/lessons/neural-networks/quiz.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 60
+        publish: true
+        due: 2024-05-18
+        grade_weight: 5
+      - name: 'Week 6 Neural Networks'
+        path: src/lessons/neural-networks/assignment.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 180
+        publish: true
+        due: 2024-05-20
+        grade_weight: 5
+  - name: 'Module 7: Knowledge Representation'
+    activities:
+      - name: 'Introduction'
+        path: src/lessons/knowledge.md
+        type: lesson
+        kind: GENERAL
+        workload: 10
+        publish: true
+      - name: 'Logic and Knowledge Base'
+        path: src/lessons/knowledge/logic-and-kb.md
+        type: lesson
+        kind: GENERAL
+        workload: 15
+        publish: true
+      - name: 'Propositional Logic'
+        path: src/lessons/knowledge/propositional-logic.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: true
+      - name: 'Practice: KB Representation'
+        path: src/lessons/knowledge/practice-kb-representation.md
+        type: lesson
+        kind: GENERAL
+        workload: 30
+        publish: true
+
+      - name: 'Inference with Logic'
+        path: src/lessons/knowledge/inference.md
+        type: lesson
+        kind: GENERAL
+        workload: 90
+        publish: true
+      - name: 'First Order Logic'
+        path: src/lessons/knowledge/first-order-logic.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: true
+      - name: 'Practice: First Order Logic'
+        path: src/lessons/knowledge/practice-first-order-logic.md
+        type: lesson
+        kind: GENERAL
+        workload: 45
+        publish: true
+      - name: 'Week 7 Quiz'
+        path: src/lessons/knowledge/quiz.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 60
+        publish: true
+        due: 2024-05-25
+        grade_weight: 5
+      - name: 'Practice Home Security System Logic'
+        path: src/lessons/knowledge/assignment.md
+        type: lesson
+        kind: GENERAL
+        workload: 180
+        publish: true
+  - name: 'Module 8: Natual Language Processing'
+    activities:
+      - name: 'Introduction'
+        path: src/lessons/nlp.md
+        type: lesson
+        kind: GENERAL
+        workload: 15
+        publish: true
+      - name: 'Language'
+        path: src/lessons/nlp/language.md
+        type: lesson
+        kind: GENERAL
+        workload: 10
+        publish: true
+      - name: 'Cleaning'
+        path: src/lessons/nlp/cleaning.md
+        type: lesson
+        kind: GENERAL
+        workload: 45
+        publish: true        
+      - name: 'Tokenization'
+        path: src/lessons/nlp/tokenization.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: true
+      - name: 'Text Representation'
+        path: src/lessons/nlp/text-representation.md
+        type: lesson
+        kind: GENERAL
+        workload: 120
+        publish: true
+      - name: 'Practice: Data Cleaning'
+        path: src/lessons/nlp/practice-cleaning.md
+        type: lesson
+        kind: GENERAL
+        workload: 45
+        publish: true
+        
+      - name: 'Practice: Text Summarization'
+        path: src/lessons/nlp/practice.md
+        type: lesson
+        kind: GENERAL
+        workload: 45
+        publish: true    
+
+      - name: 'Language Models'
+        path: src/lessons/nlp/language-models.md
+        type: lesson
+        kind: GENERAL
+        workload: 180
+        publish: true
+
+      - name: 'Practice: Create Potery'
+        path: src/lessons/nlp/practice-potery.md
+        type: lesson
+        kind: GENERAL
+        workload: 180
+        publish: true
+      - name: 'RL for Dialog Generation'
+        path: src/lessons/nlp/drl-dialog-generation-paper.md
+        type: lesson
+        kind: PUBLICATION_REVIEWED
+        workload: 240
+        publish: true
+
+      - name: 'Week 8 Quiz'
+        path: src/lessons/nlp/quiz.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 60
+        publish: true
+        due: 2024-06-01
+        grade_weight: 5
+      - name: 'Week 8 NLP'
+        path: src/lessons/nlp/assignment.md
+        type: assignment
+        kind: ASSIGNMENT
+        workload: 180
+        publish: true
+        due: 2024-06-03
+        grade_weight: 6
+
+  - name: 'Final Project'
+    activities:
+      - name: 'Final Project'
+        path: src/final-project.md
+        type: assignment
+        kind: ASSIGNMENT_SUMMATIVE
+        workload: 2300
+        publish: true
+        due: 2024-06-14
+        grade_weight: 20
+

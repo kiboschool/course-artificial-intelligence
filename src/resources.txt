@@ -1,0 +1,78 @@
+Selected By Topic:
+
+Logic / Knowedlge 
+https://courses.cs.duke.edu/compsci270/spring19/logic.pdf
+https://courses.cs.duke.edu/compsci270/spring19/first_order_logic.pdf
+
+assignments:
+https://www2.cs.sfu.ca/CourseCentral/310/tjd/a4.html
+
+
+Possible Additions:
+- provide pesudo code for search problems 
+- use the Node data structure instead of the path and tuple for space optimization
+- admissible heurstics 
+https://www2.cs.sfu.ca/CourseCentral/310/tjd/chp3_search.html 
+https://algorithmsinsight.wordpress.com/graph-theory-2/a-star-in-general/implementing-a-star-to-solve-n-puzzle/
+
+https://github.com/Leonardpepa/Pathfinding-Visualizer
+
+A*
+https://medium.com/@nicholas.w.swift/easy-a-star-pathfinding-7e6689c7f7b2
+https://github.com/morparia-p/AI-Search/tree/master/problem1
+
+
+https://www.cs.cornell.edu/courses/cs4700/2020sp/
+
+https://cs.uwaterloo.ca/~ppoupart/teaching/cs486-fall09/cs486-fall09.html
+
+https://www.cs.purdue.edu/homes/clifton/cs57100/ 
+
+https://inst.eecs.berkeley.edu/~cs188/sp19/project1.html#Q4 
+
+https://katie.cs.mtech.edu/classes/archive/f16/csci446/ 
+
+
+https://pages.cs.wisc.edu/~dyer/cs540/demos.html 
+
+https://www.cs.cmu.edu/~./15281-f19/
+
+
+
+[DS ALgorithm]
+https://courses.cs.washington.edu/courses/cse373/20wi/exams/ 
+https://courses.cs.washington.edu/courses/cse373/19au/files/cse373-19au-midterm.pdf
+
+
+Tools
+Book excercises  : https://aimacode.github.io/aima-exercises/ 
+
+
+# Define the rewards for the states
+rewards = {'a': 60, 'b': -1, 'c': -1, 'd': -1, 'e': -1, 'f': 40}
+
+# Define the discount factor
+gamma = 0.5
+
+# Calculate the utility of moving left to state 'c' from state 'd'
+utility_d_r = rewards['d'] + gamma * rewards['e'] + gamma**2 * rewards['f']   # Since we don't know U(d), we can use R(c)
+
+utility_d_l = rewards['d'] + gamma * rewards['c'] + gamma**2 * rewards['b'] + gamma**3 * rewards['a']    # Since we don't know U(d), we can use R(c)
+
+
+print("Right", utility_d_r)
+print("Left", utility_d_l)
+
+
+Tools:
+DS & Alg
+https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
+
+Algotithms Visualizer :
+https://csvistool.com/DFS
+
+
+Mini-max alpha beta trees:
+https://raphsilva.github.io/utilities/minimax_simulator/#  
+http://homepage.ufp.pt/jtorres/ensino/ia/alfabeta.html
+https://pascscha.ch/info2/abTreePractice/ 
